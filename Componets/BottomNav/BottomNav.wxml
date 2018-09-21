@@ -1,0 +1,21 @@
+<!-- 组件模板 -->
+<view class="wrapper">
+  <view class='footerNav'>
+    <ul>
+  <li class='actived'>
+    <image src='../../images/icon-yw.png'></image>
+    <text>业务</text>
+  </li>
+  <li>
+    <image src='../../images/icon-kf.png'></image>
+    <text>客服</text>
+  </li>
+  <li>
+    <image src='../../images/icon-dd.png'></image>
+    <text>订单</text>
+    <view class='order-number'>10</view>
+  </li>
+    </ul>
+  </view>
+  <slot></slot>
+</view>

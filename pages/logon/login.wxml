@@ -1,0 +1,25 @@
+<view class='login'>
+  <image class='logo-img' src='/pages/images/logo-img.png'></image>
+  <view class='top'>
+    <view class='container-fluid'>
+      <view class='col-xs-6 city-option'>
+        <navigator>
+          <image class='images-address' src='/pages/images/icon-address-gray.png'></image>
+          <text>武汉</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <view class='container-fluid'>
+    <view class='login-form'>
+      <view class="section">
+        <image class='image-phone' src='/pages/images/icon-phone.png'></image>
+        <input type="idcard" placeholder="身份证输入键盘" />
+      </view>
+    </view>
+  </view>
+
+
+
+</view>

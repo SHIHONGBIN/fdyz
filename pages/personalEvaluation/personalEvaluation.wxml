@@ -1,0 +1,68 @@
+<view class="pe-container">
+  <view class='pe-top'>
+    <image src='../../images/per-cp-img.png'></image>
+  </view>
+  <view class='pe-table1'>
+    <view class='input-box'>
+      <input type='number' placeholder='输入您的年龄（必填）' bindinput='bindNumberInput'></input>
+    
+    </view>
+    <!-- 男女-->
+    <view class='input-box'>
+          <image src='../../images/icon-bottom-arrow2.png'></image>
+    <picker bindchange="bindPickerChange" value="{{sexindex}}" range="{{sexArr}}">
+      <view class="picker">    
+      {{sexArr[sexindex]}}
+      </view>
+      <view class="picker pickerPlaceholder {{sexindex?'isshow':''}}">{{sexPlaceholder}}</view>
+    </picker>
+    </view>
+    <!-- 选择户口所在地 -->
+     <view class='input-box'>
+           <image src='../../images/icon-bottom-arrow2.png'></image>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+      {{region[0]}} {{region[1]}} {{region[2]}}
+    </view>
+    <view class="picker pickerPlaceholder {{region[0]?'isshow':''}}">{{addressPlaceholder}}</view>
+  </picker>
+    </view>
+  <!-- 工作年限 -->
+ <view class='input-box'>
+      <input type='number' placeholder='输入您的工作年限' bindinput='bindNumberInput'></input>
+    </view>
+
+      <!-- 从事行业-->
+    <view class='input-box'>
+          <image src='../../images/icon-bottom-arrow2.png'></image>
+    <picker bindchange="bindWorkChange" value="{{workindex}}" range="{{workArr}}">
+      <view class="picker">    
+      {{workArr[workindex]}}
+      </view>
+      <view class="picker pickerPlaceholder {{workindex?'isshow':''}}">{{workPlaceholder}}</view>
+    </picker>
+    </view>
+        <!-- 是否在职-->
+    <view class='input-box'>
+          <image src='../../images/icon-bottom-arrow2.png'></image>
+    <picker bindchange="bindIsWorkChange" value="{{isWorkindex}}" range="{{isWorkArr}}">
+      <view class="picker">    
+      {{isWorkArr[isWorkindex]}}
+      </view>
+      <view class="picker pickerPlaceholder {{isWorkindex?'isshow':''}}">{{isWorkPlaceholder}}</view>
+    </picker>
+    </view>
+
+        <!-- 月收入区间-->
+    <view class='input-box'>
+          <image src='../../images/icon-bottom-arrow2.png'></image>
+    <picker bindchange="bindSalaryChange" value="{{salaryindex}}" range="{{salaryArr}}">
+      <view class="picker">    
+      {{salaryArr[salaryindex]}}
+      </view>
+      <view class="picker pickerPlaceholder {{salaryindex?'isshow':''}}">{{salaryPlaceholder}}</view>
+    </picker>
+    </view>
+      </view>
+      <button class='return-btn'>下一步</button>
+</view>

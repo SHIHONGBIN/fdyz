@@ -1,0 +1,22 @@
+.pe-top{ height: 126rpx; background-color: #fff; padding-top: 38rpx;}
+.pe-top image{width: 608rpx; height: 90rpx; display: block; margin: 0 auto;}
+.pe-table1{background-color: #fff; margin-top: 15rpx; padding:0 20rpx; }
+.pe-table1 .input-box{ border-bottom: solid 1rpx #f4f4f4; min-height: 90rpx; position: relative}
+.pe-table1 input,.pe-table1 .input-view{ height: 90rpx; line-height: 90rpx; font-size: 28rpx;}
+.pe-table1 input::-moz-placeholder{color:#cbcbcb}
+.pe-table1 input::-webkit-placeholder{color:#cbcbcb}
+.pe-table1 input::-ms-placeholder{color:#cbcbcb}
+.pe-table1 input::placeholder{color:#cbcbcb}
+.input-box icon{position: absolute; right: 0;top:50%; transform: translateY(-50%); display: none}
+.input-box .icontext{ transform: rotate(90deg); position: absolute; right: 0; top: 20rpx;display: block; font-size: 40rpx; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; transition:all .2s; color:#949799}
+.input-box picker{background-color: #fff; height:45px;}
+.input-box picker view{ height: 45px; line-height: 45px; font-size: 28rpx;}
+.input-box picker.show{ display: block}
+.input-box .icontext.rotateInit{ transform: rotate(-90deg) translateY(-25%);}
+input,.input-view{ height: 90rpx; line-height: 90rpx; font-size: 28rpx;}
+.input-box .pickerPlaceholder{ position: absolute; left: 0; top: 0rpx;}
+.input-box .isshow{ display: none;}
+.input-box:last-child{border:none}
+.input-box image{ width: 22rpx; height: 12rpx; position: absolute; right: 0; top: 50%; margin-top: -5rpx;transition: all .2s;}
+.input-box image.isshow{ display: block;}
+.return-btn{ height: 80rpx; line-height: 80rpx; text-align: center; color:#fff; border-radius:30rpx;background-color: #00cdac; margin: 25rpx 25rpx 70rpx 25rpx }

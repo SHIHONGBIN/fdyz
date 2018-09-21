@@ -1,0 +1,63 @@
+<view class="pe-container">
+  <view class='pe-top'>
+    <image src='../../images/cp-img.png'></image>
+  </view>
+  <view class='pe-table1'>
+ <!-- 选择抵押物所在地 -->
+     <view class='input-box'>
+           <image src='../../images/icon-bottom-arrow2.png'></image>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+      {{region[0]}} {{region[1]}} {{region[2]}}
+    </view>
+    <view class="picker pickerPlaceholder {{region[0]?'isshow':''}}">{{addressPlaceholder}}</view>
+  </picker>
+    </view>
+
+        <!-- 朝向-->
+    <view class='input-box'>
+          <image src='../../images/icon-bottom-arrow2.png'></image>
+    <picker bindchange="bindPickerChange" value="{{houseDirectionindex}}" range="{{houseDirectionArr}}">
+      <view class="picker">    
+      {{houseDirectionArr[houseDirectionindex]}}
+      </view>
+      <view class="picker pickerPlaceholder {{houseDirectionindex?'isshow':''}}">{{houseDirectionPlaceholder}}</view>
+    </picker>
+    </view>
+
+    <!-- 户型-->
+    <view class='input-box'>
+          <image src='../../images/icon-bottom-arrow2.png'></image>
+    <picker bindchange="bindHouseTypeChange" value="{{houseTypeindex}}" range="{{houseTypeArr}}">
+      <view class="picker">    
+      {{houseTypeArr[houseTypeindex]}}
+      </view>
+      <view class="picker pickerPlaceholder {{houseTypeindex?'isshow':''}}">{{houseTypePlaceholder}}</view>
+    </picker>
+    </view>
+
+
+    <view class='input-box'>
+      <input type='number' placeholder='输入房产证号' bindinput='deleteAll'></input>
+       <icon type="cancel" size="20" color='#ccc'/>
+    </view>
+    <view class='input-box'>
+      <input type='text' placeholder='输入抵押物所在小区' bindinput=''></input>
+    </view>
+    <view class='input-box'>
+    <input type='text' placeholder='输入房产面积（平米）' bindinput=''></input>
+    </view>
+    <view class='input-box'>
+    <input type='text' placeholder='输入门牌号' bindinput=''></input>
+    </view>
+    <view class='input-box'>
+    <input type='text' placeholder='输入总层数' bindinput=''></input>
+    </view>
+
+<view class='input-box'>
+    <input type='text' placeholder='输入所在楼层' bindinput=''></input>
+    </view>
+      </view>
+      <button class='return-btn'>下一步</button>
+      <button class='return-btn pre-step'>上一步</button>
+</view>

@@ -1,0 +1,17 @@
+    <!-- 男女 -->
+     <view class='input-box'> 
+     <view class="input-view" bindtap='PickerSlideDown'>{{selectSex}}</view>
+     <view class="icontext {{isClick?'rotateInit':''}}">></view>
+     <!-- <picker-view  indicator-style="height: 45px;" style="width: 100%; height: 45px;" value="{{item}}" bindchange="bindChange" class="{{isClick?'show':''}}">
+    <picker-view-column>
+      <view wx:for="{{datapicker}}" style="line-height: 45px">{{item}}</view>
+    </picker-view-column>
+  </picker-view> -->
+
+
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{datapicker}}">
+    <view class="picker">
+      {{array[0]}}
+    </view>
+  </picker>
+     </view>

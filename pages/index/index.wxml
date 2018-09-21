@@ -1,0 +1,107 @@
+<view class='home-page'>
+
+  <view class='top'>
+    <view class='container-fluid'>
+      <view class='col-xs-6 city-option'>
+        <navigator>
+          <image class='images-address' src='../../images/icon-address.jpg'></image>
+          <text>武汉</text>
+        </navigator>
+      </view>
+      <view class='col-xs-6 text-right'>
+        <navigator>
+          <image class='images-address' src='../../images/icon-user.png'></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='banner'>
+    <swiper class='swiper-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+
+  <view class='pro-services'>
+    <view class='container-fluid'>
+      <view class='pro-title'>
+        <text class='border-line'></text>专业服务</view>
+      <view class='row pro-services-list'>
+        <view class='col-xs-4 text-center'>
+          <navigator url="../business/business?title=业务测评" >
+            <image src='../../images/icon-ywps.png'></image>
+            业务测评
+          </navigator>
+        </view>
+        <view class='col-xs-4 text-center  col-4'>
+          <navigator>
+            <image src='../../images/icon-xycx.png'></image>
+            信用查询
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='pro-services'>
+    <view class='container-fluid'>
+      <view class='pro-title'>
+        <text class='border-line'></text>配套服务</view>
+      <view class='row pro-services-list'>
+        <view class='col-xs-4 text-center'>
+          <navigator>
+            <image src='../../images/icon-fcpg.png'></image>
+            房产评估
+          </navigator>
+        </view>
+        <view class='col-xs-4 text-center  col-4'>
+          <navigator>
+            <image src='../../images/icon-qzdb.png'></image>
+            权证代办
+          </navigator>
+        </view>
+        <view class='col-xs-4 text-center'>
+          <navigator>
+            <image src='../../images/icon-jzdc.png'></image>
+            尽职调查
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='pro-services info-list'>
+    <view class='container-fluid'>
+      <view class='pro-title'>
+        <text class='border-line'></text>资讯列表
+      </view>
+      <view class='mui-table-view'>
+      <block wx:for='{{newsList}}'>
+        <navigator class='mui-table-view-cell'>
+          <view class='info-title'>{{item.title}}</view>
+          <view class='time'>{{item.date}}</view>
+        </navigator>
+        </block>
+        <view class='view-box' wx:if='{{isShowLoading}}'>
+                <image src='../../images/loading.gif' class='loadingpic'></image>
+                正在加载更多    
+        </view>
+        <view class='nodata' wx:if='{{isHaveData}}'>------没有更多数据-----</view>
+      </view>
+    </view>
+  </view>
+
+
+ 
+</view>
+  <my-component class='footerNav'>
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <!-- <view>这里是插入到组件slot中的内容</view>  -->
+  </my-component>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-component": "../../Componets/BottomNav/BottomNav"
+  },
+  "onReachBottomDistance":150
+}
