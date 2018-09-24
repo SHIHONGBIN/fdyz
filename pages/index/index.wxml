@@ -101,7 +101,7 @@
 
  
 </view>
-  <my-component class='footerNav'>
+  <!-- <my-component class='footerNav'>
     <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
      <!-- <view>这里是插入到组件slot中的内容</view>  -->
-  </my-component>
+  <!-- </my-component> -->

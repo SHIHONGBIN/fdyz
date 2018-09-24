@@ -4,12 +4,36 @@
     "pages/logon/login",
     "pages/business/business",
     "pages/personalEvaluation/personalEvaluation",
-    "pages/personalEvaluation1/personalEvaluation1"
+    "pages/personalEvaluation1/personalEvaluation1",
+    "pages/personalEvaluation2/personalEvaluation2"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f2f2f2",
     "navigationBarTitleText": "房贷担保驿站",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "position":"bottom",
+    "color":"#333333",
+    "selectedColor":"#00cdac",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "业务",
+        "iconPath": "/images/icon-yw.png",
+        "selectedIconPath": "images/icon-yw-current.png"
+      },
+      {
+        "pagePath": "pages/personalEvaluation2/personalEvaluation2",
+        "text": "客服",
+        "iconPath": "images/icon-kf.png",
+        "selectedIconPath": "images/icon-kf-current.png"
+      },
+      {
+        "pagePath": "pages/business/business",
+        "text": "订单",
+        "iconPath": "images/icon-dd.png",
+        "selectedIconPath": "images/icon-kf-current.png"
+      }]
   }
 }

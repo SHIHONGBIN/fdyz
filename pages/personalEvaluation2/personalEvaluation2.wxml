@@ -1,0 +1,46 @@
+<view class="pe-container">
+  <view class='pe-top'>
+    <image src='../../images/cp-zx-img.png'></image>
+  </view>
+  <!--单选-->
+  <view class='zx-choice1' wx:for="{{item}}"> 
+      <block  wx:if="{{item.radio == 1}}">
+       <text class='text-title'>{{item.question}}</text>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <view class='choice-box' wx:for="{{item.content}}">
+                <label for='{{item.value}}'>{{item.question}}</label>
+                <radio class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}">
+                    <!-- <text>{{item.value}}</text> -->
+                </radio>
+        </view>
+       </radio-group>
+       </block>
+       <!-- 多选 -->
+       <block    wx:elif="{{item.radio == 0}}">
+        <text class='text-title'>{{item.question}}</text>
+        <checkbox-group class="radio-group" bindchange="checkboxChange">
+        <view class='choice-box' wx:for="{{item.content}}">
+                <label for='{{item.value}}'>{{item.question}}</label>
+                <checkbox class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}"> 
+                    <!-- <text>{{item.value}}</text> -->
+               </checkbox>
+        </view>
+       </checkbox-group>
+       </block>
+       <!-- 只有一个选项 -->
+       <block wx:else>
+        <view class='strongLabel'>
+           <checkbox-group class="radio-group" bindchange="radioChange">
+        <view class='choice-box' wx:for="{{item.content}}">
+                <label for='{{item.value}}'>{{item.question}}</label>
+                <checkbox class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}">
+                    <!-- <text>{{item.value}}</text> -->
+                </checkbox>
+        </view>
+       </checkbox-group>
+       </view>
+       </block>
+  </view>
+      <button class='return-btn'>下一步</button>
+      <button class='return-btn pre-step'>上一步</button>
+</view>
