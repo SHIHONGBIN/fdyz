@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.98",
 	"appid": "touristappid",
-	"projectname": "0",
+	"projectname": "1",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -36,12 +36,6 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "business",
-					"pathName": "pages/business/business",
-					"query": ""
-				},
-				{
-					"id": -1,
 					"name": "personalEvaluation",
 					"pathName": "pages/personalEvaluation/personalEvaluation",
 					"query": ""
@@ -60,8 +54,15 @@
 				},
 				{
 					"id": -1,
-					"name": "personalEvaluation3",
-					"pathName": "pages/personalEvaluation3/personalEvaluation3"
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "dueDiligence",
+					"pathName": "pages/dueDiligence/dueDiligence",
+					"query": "title='尽职调查'"
 				}
 			]
 		}

@@ -1,0 +1,49 @@
+<view class='login'>
+  <image class='logo-img' src='../../images/logo-img.png'></image>
+
+<form bindsubmit="formSubmit">
+  <view class='top'>
+    <view class='container-fluid'>
+      <view class='col-xs-6 city-option'>
+        <navigator>
+          <image class='images-address' src='../../images/icon-address-gray.png'></image>
+          <text>武汉</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='container-fluid login-box'>
+    <view class='login-form'>
+      <view class="section">
+        <image class='image-phone' src='../../images/icon-phone.png'></image>
+        <input type="number" placeholder="手机号" placeholder-class='placeholderClass' bindinput='canSubmit' class='tel-input' />
+      </view>
+    </view>
+
+     <view class='login-form'>
+      <view class="section">
+        <image class='image-phone' src='../../images/icon-code.png'></image>
+        <input type="number" placeholder="图片验证码" placeholder-class='placeholderClass' class='yzm-input'  bindinput='imageYZMFn' />
+        <view class='yzm-box'>
+          <image src='../../images/code-img.png'></image>
+        </view>
+      </view>
+    </view>
+
+     <view class='login-form'>
+      <view class="section">
+        <image class='image-phone' src='../../images/icon-phone.png'></image>
+        <input type="number" placeholder="手机验证码" placeholder-class='placeholderClass' class='number-input'  bindinput='telYZMFn' />
+         <view class='yzm-box'>
+          <text bindtap='daojishiFn'>{{yzmTips}}</text>
+        </view>
+      </view>
+    </view>
+  <button form-type='submit' class='submit-button {{disabled==true?"static":""}}' disabled="{{disabled}}">登录</button>
+  </view>
+  
+  </form>
+
+</view>

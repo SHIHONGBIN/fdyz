@@ -1,0 +1,7 @@
+.dueDiligence-box .service-intro{ vertical-align: top; font-size: 26rpx; line-height:36rpx; background-color: #fff; padding:20rpx; padding-bottom: 10rpx}
+.service-intro .s-i-l-con,.service-intro .s-i-r-con{ display: inline-block; vertical-align: top; margin-bottom: 10rpx;}
+.service-intro .s-i-l-con{width: 130rpx; color:#333}
+.service-intro .s-i-r-con{width: 580rpx; color:#777}
+.submitDiligence{ background-color: #fff; padding: 0 20rpx; margin-top: 15rpx;}
+.submitDiligence .input-box{ height: 88rpx; line-height: 88rpx; border-bottom:solid 1px #f4f4f4;}
+.submitDiligence .input-box input{ height: 60rpx; line-height: 60rpx; font-size:28rpx; display: inline-block; vertical-align: middle}

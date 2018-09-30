@@ -2,15 +2,15 @@
   <view class='pe-top'>
     <image src='../../images/per-cp-img.png'></image>
   </view>
+  <form bindsubmit='formSubmit' >
   <view class='pe-table1'>
     <view class='input-box'>
-      <input type='number' placeholder='输入您的年龄（必填）' bindinput='bindNumberInput'></input>
-    
+      <input type='number' placeholder='输入您的年龄（必填）' bindinput='bindNumberInput' name='age' value='{{initAge}}'></input>
     </view>
     <!-- 男女-->
     <view class='input-box'>
           <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindPickerChange" value="{{sexindex}}" range="{{sexArr}}">
+    <picker bindchange="bindPickerChange" value="{{sexindex}}" range="{{sexArr}}" name='sex'>
       <view class="picker">    
       {{sexArr[sexindex]}}
       </view>
@@ -20,7 +20,7 @@
     <!-- 选择户口所在地 -->
      <view class='input-box'>
            <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" name='address'>
     <view class="picker">
       {{region[0]}} {{region[1]}} {{region[2]}}
     </view>
@@ -29,13 +29,13 @@
     </view>
   <!-- 工作年限 -->
  <view class='input-box'>
-      <input type='number' placeholder='输入您的工作年限' bindinput='bindNumberInput'></input>
+      <input type='number' placeholder='输入您的工作年限' bindinput='bindNumberInput' name='workyear' value='{{workyear}}'></input>
     </view>
 
       <!-- 从事行业-->
     <view class='input-box'>
           <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindWorkChange" value="{{workindex}}" range="{{workArr}}">
+    <picker bindchange="bindWorkChange" value="{{workindex}}" range="{{workArr}}" name='worktype'>
       <view class="picker">    
       {{workArr[workindex]}}
       </view>
@@ -45,7 +45,7 @@
         <!-- 是否在职-->
     <view class='input-box'>
           <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindIsWorkChange" value="{{isWorkindex}}" range="{{isWorkArr}}">
+    <picker bindchange="bindIsWorkChange" value="{{isWorkindex}}" range="{{isWorkArr}}" name='iswork'>
       <view class="picker">    
       {{isWorkArr[isWorkindex]}}
       </view>
@@ -56,7 +56,7 @@
         <!-- 月收入区间-->
     <view class='input-box'>
           <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindSalaryChange" value="{{salaryindex}}" range="{{salaryArr}}">
+    <picker bindchange="bindSalaryChange" value="{{salaryindex}}" range="{{salaryArr}}" name='salary'>
       <view class="picker">    
       {{salaryArr[salaryindex]}}
       </view>
@@ -64,5 +64,7 @@
     </picker>
     </view>
       </view>
-      <button class='return-btn'>下一步</button>
+
+      <button class='return-btn' form-type='submit'>下一步</button>
+</form>
 </view>

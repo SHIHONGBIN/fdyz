@@ -1,0 +1,14 @@
+/* pages/logon/login.wxss */
+.login-box{ background-color: #fff; padding: 50rpx 0; border-radius: 25rpx; margin: 0 24rpx; }
+.login-box input{ height: 100rpx; line-height: 100rpx; text-align: left; font-size: 36rpx; padding: 0 60rpx;}
+.login-box .section{ margin: 0 50rpx; position: relative; border-bottom: solid 1px #f4f4f4; height: 108rpx; line-height: 116rpx; padding-top: 8rpx; overflow: hidden; zoom:1}
+.placeholderClass{ color:#cbcbcb}
+.login-box image{ top:50%; transform: translateY(-50%); left: 5rpx; }
+.yzm-input,.number-input,.tel-input{display: inline-block; vertical-align: top}
+.yzm-input,.number-input{width: 200rpx;}
+.yzm-box{  float: right; margin-top: 16rpx;}
+.yzm-box image{ width: 108rpx; height: 50rpx; float: left; margin-top: 30rpx; margin-right: 10rpx}
+.yzm-box text{width: 148rpx; height: 64rpx; line-height: 64rpx; border: solid 1px #00cdac; background-color: transparent; font-size: 24rpx;color:#00cdac; padding: 0; float: right; text-align: center;border-radius: 6rpx; display: block}
+.submit-button{ height: 80rpx; line-height: 80rpx; text-align: center; color:#fff; border-radius:30rpx;background-color: #00cdac; margin: 86rpx 25rpx 19rpx 25rpx;}
+.static{position: static}
+.login-form{ overflow: hidden; zoom:1;}

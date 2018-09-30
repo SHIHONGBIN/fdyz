@@ -25,6 +25,12 @@ Page({
     interval: 5000,
     duration: 1000
   },
+  onLoad:function(){
+    wx.setTabBarBadge({
+      index:2,
+      text:'3'
+    })
+  },
   changeIndicatorDots: function (e) {
     this.setData({
       indicatorDots: !this.data.indicatorDots

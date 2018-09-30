@@ -34,7 +34,7 @@
         <text class='border-line'></text>专业服务</view>
       <view class='row pro-services-list'>
         <view class='col-xs-4 text-center'>
-          <navigator url="../business/business?title=业务测评" >
+          <navigator url="../personalEvaluation/personalEvaluation?title=业务测评" >
             <image src='../../images/icon-ywps.png'></image>
             业务测评
           </navigator>
@@ -68,7 +68,7 @@
           </navigator>
         </view>
         <view class='col-xs-4 text-center'>
-          <navigator>
+          <navigator url='../dueDiligence/dueDiligence?title=尽职调查'>
             <image src='../../images/icon-jzdc.png'></image>
             尽职调查
           </navigator>

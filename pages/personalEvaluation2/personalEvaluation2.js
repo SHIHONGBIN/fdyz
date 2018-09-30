@@ -10,6 +10,7 @@ Page({
     item:[{
       // 1 ： 单选    0： 多选（多个） 2：多选（单个） 
       question:'1. 当前逾期（单选）',
+      fullname:'name1',
       radio:1,
       content: [
         { name: 'radioOutDate0', value: 'r0', checked: 'true', question: '（1）无当前逾期' },
@@ -19,6 +20,7 @@ Page({
     },{
         question:'2. 贷款及信用卡逾期记录（多选）',
         radio: 0,
+        fullname: 'name2',
         content: [
           { name: 'checkboxOutDate0', value: 'c0', checked: 'true', question: '（1）近一年内连续逾期超过3次' },
           { name: 'checkboxOutDate1', value: 'c1', question: '（2）近一年内累计逾期超过6次' },
@@ -29,12 +31,14 @@ Page({
         ]
     },{
         question:'',
+        fullname: 'name3',
         radio: 2,
         content: [{ name: 'oneRadio0', value: 'o0', question: '3. 没有过执行记录' }]
     },
       {
         question: '4. 否唯一住房（单选）',
         radio: 1,
+        fullname: 'name4',
         content: [
           { name: 'isOnlyHouse0', value: 'i0', checked: 'true', question: '（1）唯一住房' },
           { name: 'isOnlyHouse1', value: 'i1', question: '（2）唯一住房，房屋内部装修等较差' },
@@ -47,6 +51,7 @@ Page({
       },{
         question: '5. 偿还能力（单选）',
         radio: 1,
+        fullname: 'name5',
         content: [
           {
             name: 'repayBility0', value: 'rb0', checked: 'true', question: '（1）可提供详细的经营情况证明，企业经营或个人银行流水可覆盖一年期贷款的本息' },
@@ -56,10 +61,12 @@ Page({
       }, {
         question: '',
         radio: 2,
+        fullname: 'name6',
         content: [{ name: 'moreCredit', value: 'm0', question: '6. 存在显性负债或多头民间借贷' }]
       } , {
         question: '',
         radio: 2,
+        fullname: 'name7',
         content: [{ name: 'personal0', value: 'p0', question: '7. 离异/高龄单身' }]
       },]
   },
@@ -126,5 +133,27 @@ Page({
   checkboxChange: function(e){
     //当前选择对象的的name的值
     console.log(e.detail.value)
+  },
+  //提交
+  formSubmit: function(e){
+    //获取当前表单的值
+    const testtable3 = e.detail.value;
+    //获取前两个表单的值
+    const testtable1 = wx.getStorageSync('testtable1');
+    const testtable2 = wx.getStorageSync('testtable2');
+
+  //post提交
+    wx.showToast({
+      title: '提交成功',
+    });
+
+
+    //跳转页面
+    setTimeout(function () {
+      //跳转到tabbar页面
+      wx.navigateTo({
+        url: '../personalEvaluationResult/personalEvaluationResult',
+      });
+    }, 2000)
   }
 })

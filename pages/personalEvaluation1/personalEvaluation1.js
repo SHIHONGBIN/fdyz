@@ -16,13 +16,35 @@ Page({
     houseDirectionPlaceholder:'选择朝向',
     addressPlaceholder: '选择抵押物所在城市',
     houseTypePlaceholder: '选择户型',
+    houseCode:'',
+    houseSqure:'',
+    houseArea:'',
+    houseNumber:'',
+    houseFloor:'',
+    houseTotleFloor:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const that = this;
+    wx.getStorage({
+      key: 'testtable2',
+      success: function (res) {
+        that.setData({
+          region: res.data.houseAddress || '',
+          houseDirectionindex: res.data.houseDirection||'',
+          houseTypeindex: res.data.houseType||'',
+          houseCode: res.data.houseCode||'',
+          houseSqure: res.data.houseSqure||'',
+          houseArea: res.data.houseArea ||'',
+          houseNumber: res.data.houseNumber ||'',
+          houseFloor: res.data.houseFloor ||'',
+          houseTotleFloor: res.data.houseTotleFloor||''
+        })
+      },
+    })
   },
 
   /**
@@ -90,5 +112,80 @@ Page({
   },
   deleteAll: function(e,obj){
     console.log(SelectorQuery.select('image'))
+  },
+  //提交表单
+  bindsubmit:function(e){
+    const objVal = e.detail.value;
+    console.log(objVal)
+    //验证所有
+    for (var x in objVal) {
+      if (objVal['houseAddress'].length == 0) {
+        wx.showToast({
+          title: '地址未选择',
+          icon: 'none'
+        });
+        return false
+      } else if (objVal['houseDirection']=='') {
+        wx.showToast({
+          title: '朝向未选择',
+          icon: 'none'
+        });
+        return false
+      } else if (objVal['houseType'] == '') {
+        wx.showToast({
+          title: '户型未选择',
+          icon: 'none'
+        });
+        return false
+      } else if (objVal['houseCode'] == '') {
+        wx.showToast({
+          title: '房产证号未选择',
+          icon: 'none'
+        });
+        return false
+      } else if (objVal['houseSqure'] == '') {
+        wx.showToast({
+          title: '所在小区未选择',
+          icon: 'none'
+        });
+        return false
+      } else if (objVal['houseArea'] == '') {
+        wx.showToast({
+          title: '房产面积未选择',
+          icon: 'none'
+        });
+        return false
+      } else if (objVal['houseNumber'] == '') {
+        wx.showToast({
+          title: '门牌号未选择',
+          icon: 'none'
+        });
+        return false
+      } else if (objVal['houseFloor'] == '') {
+        wx.showToast({
+          title: '当前楼层未选择',
+          icon: 'none'
+        });
+        return false
+      } else if (objVal['houseTotleFloor'] == '') {
+        wx.showToast({
+          title: '总楼层未选择',
+          icon: 'none'
+        });
+        return false
+      }else {
+        //提交数据表单
+
+      }
+    }
+    //更新缓存
+    wx.setStorage({
+      key: 'testtable2',
+      data: objVal,
+    });
+    //下一页
+    wx.navigateTo({
+      url: '../personalEvaluation2/personalEvaluation2',
+    })
   }
 })

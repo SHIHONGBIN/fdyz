@@ -2,11 +2,12 @@
   <view class='pe-top'>
     <image src='../../images/cp-img.png'></image>
   </view>
+  <form bindsubmit='bindsubmit'>
   <view class='pe-table1'>
  <!-- 选择抵押物所在地 -->
      <view class='input-box'>
            <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" name='houseAddress'>
     <view class="picker">
       {{region[0]}} {{region[1]}} {{region[2]}}
     </view>
@@ -17,7 +18,7 @@
         <!-- 朝向-->
     <view class='input-box'>
           <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindPickerChange" value="{{houseDirectionindex}}" range="{{houseDirectionArr}}">
+    <picker bindchange="bindPickerChange" value="{{houseDirectionindex}}" range="{{houseDirectionArr}}" name='houseDirection'>
       <view class="picker">    
       {{houseDirectionArr[houseDirectionindex]}}
       </view>
@@ -28,7 +29,7 @@
     <!-- 户型-->
     <view class='input-box'>
           <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindHouseTypeChange" value="{{houseTypeindex}}" range="{{houseTypeArr}}">
+    <picker bindchange="bindHouseTypeChange" value="{{houseTypeindex}}" range="{{houseTypeArr}}" name='houseType'>
       <view class="picker">    
       {{houseTypeArr[houseTypeindex]}}
       </view>
@@ -38,26 +39,29 @@
 
 
     <view class='input-box'>
-      <input type='number' placeholder='输入房产证号' bindinput='deleteAll'></input>
+      <input type='number' placeholder='输入房产证号' bindinput='' name='houseCode' value='{{houseCode}}'></input>
        <icon type="cancel" size="20" color='#ccc'/>
     </view>
     <view class='input-box'>
-      <input type='text' placeholder='输入抵押物所在小区' bindinput=''></input>
+      <input type='text' placeholder='输入抵押物所在小区' bindinput='' name='houseSqure' value='{{houseSqure}}'></input>
     </view>
     <view class='input-box'>
-    <input type='text' placeholder='输入房产面积（平米）' bindinput=''></input>
+    <input type='text' placeholder='输入房产面积（平米）' bindinput='' name='houseArea' value='{{houseArea}}'></input>
     </view>
     <view class='input-box'>
-    <input type='text' placeholder='输入门牌号' bindinput=''></input>
+    <input type='text' placeholder='输入门牌号' bindinput='' name='houseNumber' value='{{houseNumber}}'></input>
     </view>
     <view class='input-box'>
-    <input type='text' placeholder='输入总层数' bindinput=''></input>
+    <input type='text' placeholder='输入总层数' bindinput='' name='houseFloor' value='{{houseFloor}}'></input>
     </view>
 
 <view class='input-box'>
-    <input type='text' placeholder='输入所在楼层' bindinput=''></input>
+    <input type='text' placeholder='输入所在楼层' bindinput='' name='houseTotleFloor' value='{{houseTotleFloor}}'></input>
     </view>
       </view>
-      <button class='return-btn'>下一步</button>
-      <button class='return-btn pre-step'>上一步</button>
+        <button class='return-btn' form-type='submit' >下一步</button>
+       <navigator url='../personalEvaluation/personalEvaluation'>
+            <button class='return-btn pre-step'>上一步</button>
+      </navigator>
+      </form>
 </view>

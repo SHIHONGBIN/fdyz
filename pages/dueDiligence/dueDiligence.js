@@ -1,4 +1,4 @@
-// pages/logon/login.js
+// pages/logs/index.js
 Page({
 
   /**
@@ -12,7 +12,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    //改变标题
+    const title = options.title;
+    wx.setNavigationBarTitle({
+      title: title,
+    })
   },
 
   /**

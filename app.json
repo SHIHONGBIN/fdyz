@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logon/login",
-    "pages/business/business",
+    "pages/personalEvaluationResult/personalEvaluationResult",
     "pages/personalEvaluation/personalEvaluation",
     "pages/personalEvaluation1/personalEvaluation1",
-    "pages/personalEvaluation2/personalEvaluation2"
+    "pages/personalEvaluation2/personalEvaluation2",
+    "pages/login/login",
+    "pages/dueDiligence/dueDiligence"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,16 +25,16 @@
         "selectedIconPath": "images/icon-yw-current.png"
       },
       {
-        "pagePath": "pages/personalEvaluation2/personalEvaluation2",
+        "pagePath": "pages/index/index",
         "text": "客服",
         "iconPath": "images/icon-kf.png",
         "selectedIconPath": "images/icon-kf-current.png"
       },
       {
-        "pagePath": "pages/business/business",
+        "pagePath": "pages/index/index",
         "text": "订单",
         "iconPath": "images/icon-dd.png",
-        "selectedIconPath": "images/icon-kf-current.png"
+        "selectedIconPath": "images/icon-dd-current.png"
       }]
   }
 }
