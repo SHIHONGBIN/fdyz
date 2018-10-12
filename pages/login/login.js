@@ -13,9 +13,29 @@ Page({
     imageYZM:'',
     //初始图片验证码
     telInitYZM:'666666',
+    //手机验证码
     telYZM:'',
+    //保存表单名字数组
+    formdata: ['tel', 'imageYZM', 'telYZM'],
     yzmTips:'获取验证码',
-    isTimeRun:false
+    isTimeRun:false,
+    //控制弹窗隐藏class
+    isShow:false,
+    //是否点击 三个input 默认false
+    isClick0: false,
+    isClick1: false,
+    isClick2: false,
+    //保存三个input名字 视图里面 data-id传过来number值 动态获取相应名字
+    isClick: ['isClick0', 'isClick1','isClick2'],
+    //input提示语
+    inputPlaceholder0:['点击输入手机号','手机号'],
+    inputPlaceholder1: ['点击输入图片验证码','图片验证码'],
+    inputPlaceholder2: ['点击输入手机验证码','手机验证码'],
+    inputPlaceholderArr: ['inputPlaceholder0', 'inputPlaceholder1','inputPlaceholder2'],
+    //控制弹窗 success  wrong
+    successBox:false,
+    wrongBox: false,
+    wrongText:''
   },
 
   /**
@@ -82,11 +102,12 @@ Page({
       //测试通过
     }else{
       //测试不通过
-      wx.showToast({
-        title:'电话号码格式错误',
-        icon: 'none'
-      });
-      return false
+        this.setData({
+          wrongBox: true,
+          wrongText: '电话号码格式错误'
+        })
+        
+      return false; 
     };
     //验证图片验证码
     const initYZM = this.data.initYZM;
@@ -95,9 +116,9 @@ Page({
       //测试通过
     } else {
       //测试不通过
-      wx.showToast({
-        title: '图片验证码错误',
-        icon: 'none'
+      this.setData({
+        wrongBox: true,
+        wrongText: '图片验证码错误'
       })
       return false;
     };
@@ -108,17 +129,19 @@ Page({
       //测试通过
     } else {
       //测试不通过
-      wx.showToast({
-        title: '手机验证码错误',
-        icon: 'none'
+      this.setData({
+        wrongBox: true,
+        wrongText: '手机验证码错误'
       })
       return false;
     };
+    
     //验证通过
     //测试不通过
-    wx.showToast({
-      title: '提交成功',
-    });
+    //测试不通过
+    this.setData({
+      successBox: true
+    })
     //跳转页面
     setTimeout(function(){
       //跳转到tabbar页面
@@ -130,7 +153,7 @@ Page({
   //判断可否提交
   canSubmit: function(e){
     //长度0 不可提交
-    if (e.detail.cursor<1){
+    if (e.detail.value==''){
       this.setData({
         disabled: true,
         tel: e.detail.value
@@ -176,6 +199,64 @@ Page({
   telYZMFn: function(e){
     this.setData({
       telYZM: e.detail.value
+    })
+  },
+  showProtocolTotal: function(){
+    wx.showToast({
+      title: 'sss',
+    })
+  },
+  //关闭协议
+  closeModal: function(){
+    this.setData({
+      isShow: !this.data.isShow
+    })
+  },
+  //打开协议
+  showProtocolTotal: function(){
+    this.setData({
+      isShow:!this.data.isShow
+    })
+  },
+  //点击获得焦点时候 文字上推
+  placeholderAnimateUp: function (e) {
+    //获取标识符 点击哪个input
+    const id = e.currentTarget.dataset.id;
+    const key = this.data.isClick[id];
+    const placehoderText = this.data.inputPlaceholderArr[id];
+    //直接改变对象 把对象传进去
+    var obj = {};
+    obj[key] = true;
+    var obj2=  {};
+    obj2[placehoderText] = this.data[placehoderText].reverse();
+    const keyFormName = this.data.formdata[id];
+    //动态判断三个input的value是否为零
+    if (this.data[keyFormName].length == 0) {
+      this.setData(obj);
+      this.setData(obj2)
+    }
+  },
+  //点击获得焦点时候 文字上推
+  inputBlur: function (e) {
+    //获取标识符 点击哪个input
+    const id = e.currentTarget.dataset.id;
+    const key = this.data.isClick[id];
+    const placehoderText = this.data.inputPlaceholderArr[id];
+    var obj = {};
+    obj[key] = false;
+    var obj2 = {};
+    obj2[placehoderText] = this.data[placehoderText].reverse();
+    const keyFormName = this.data.formdata[id];
+    //动态判断三个input的value是否为零
+    if (this.data[keyFormName].length == 0) {
+      this.setData(obj)
+      this.setData(obj2)
+    }
+  },
+  //接受子组件的事件
+  closelightbox: function(e){
+    this.setData({
+      wrongBox: false
     })
   }
 })

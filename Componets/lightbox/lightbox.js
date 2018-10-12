@@ -4,39 +4,25 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    datapicker:Array
+    datapicker: Array,
+    proData:Boolean
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    selectSex: '选择性别（必选）',
+    proData:''
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    PickerSlideDown: function (e) {
-      const isClick = this.data.isClick;
-      this.setData({
-        isClick: !isClick
-      })
-    },
-    bindPickerChange: function (e) {
-      console.log('picker发送选择改变，携带值为', e.detail.value)
-      this.setData({
-        index: e.detail.value
-      })
-    },
-    bindChange: function (e) {
-      const val = e.detail.value;
-      this.setData({
-        selectSex: this.data.sex[val]
-      })
-      //父组件传值
-      this.triggerEvent('myevent', { paramData: this.data.sex[val]})
+    closeBox: function () {
+      //任意传个对象
+      var myvalue = {};
+      this.triggerEvent('myevent', myvalue)
     }
   },
   /*ready*/
@@ -62,5 +48,5 @@ Component({
     //     bottomNavSelect: [0, 0, 0]
     //   })
     // };
-  },
+  }
 })

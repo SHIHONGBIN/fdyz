@@ -62,7 +62,7 @@
           </navigator>
         </view>
         <view class='col-xs-4 text-center  col-4'>
-          <navigator>
+          <navigator url="../propertyRightAgency/propertyRightAgency?title=权证代办">
             <image src='../../images/icon-qzdb.png'></image>
             权证代办
           </navigator>

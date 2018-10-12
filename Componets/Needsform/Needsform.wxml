@@ -1,0 +1,19 @@
+  <form bindsubmit='bindsubmit'>
+    <view class='submitDiligence'>
+      <view class='input-box'>
+        <input type='text' placeholder='输入联系人姓名' placeholder-class='placeholderInput' bindinput='testName' name='username'></input>
+      </view>
+      <view class='input-box'>
+        <input type='number' placeholder='输入联系人手机号' placeholder-class='placeholderInput' bindinput='testTel' name='usertel'></input>
+      </view>
+    </view>
+    <view class='textarea-box'>
+      <text class='t-b-title'>需求描述</text>
+      <view class='t-b-textarea'>
+        <textarea maxlength='500' adjust-position = 'true' bindinput='testInput' name='textareaname'>
+          <text class='canInput'>{{remainingText}}</text>
+        </textarea>
+      </view>
+    </view>
+   <button formType="submit" class='submit-button' disabled="{{disabled}}" plain='{{disabled}}'>提交</button>
+</form>

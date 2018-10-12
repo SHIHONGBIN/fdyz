@@ -6,6 +6,7 @@
   <view class='pe-table1'>
  <!-- 选择抵押物所在地 -->
      <view class='input-box'>
+     <text class='input-name'>区域</text>
            <image src='../../images/icon-bottom-arrow2.png'></image>
     <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" name='houseAddress'>
     <view class="picker">
@@ -14,54 +15,58 @@
     <view class="picker pickerPlaceholder {{region[0]?'isshow':''}}">{{addressPlaceholder}}</view>
   </picker>
     </view>
+      <view class='input-box'>
+      <text class='input-name'>抵押物所在小区</text>
+      <input type='text' placeholder='请输入' bindinput='' name='houseSqure' value='{{houseSqure}}' placeholder-class='placeholdername' ></input>
+    </view>
 
-        <!-- 朝向-->
+        <view class='input-box'>
+        <text class='input-name'>楼栋及门牌号</text>
+    <input type='text' placeholder='请输入' bindinput='' name='houseNumber' value='{{houseNumber}}'placeholder-class='placeholdername'></input>
+    </view>
+
     <view class='input-box'>
-          <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindPickerChange" value="{{houseDirectionindex}}" range="{{houseDirectionArr}}" name='houseDirection'>
-      <view class="picker">    
-      {{houseDirectionArr[houseDirectionindex]}}
-      </view>
-      <view class="picker pickerPlaceholder {{houseDirectionindex?'isshow':''}}">{{houseDirectionPlaceholder}}</view>
-    </picker>
+    <text class='input-name'>房产证号</text>
+      <input type='number' placeholder='请输入' bindinput='' name='houseCode' value='{{houseCode}}'placeholder-class='placeholdername'></input>
+       <icon type="cancel" size="20" color='#ccc'/>
+    </view>
+  
+    <view class='input-box'>
+    <text class='input-name'>房产面积（平米）</text>
+    <input type='text' placeholder='请输入' bindinput='' name='houseArea' value='{{houseArea}}' placeholder-class='placeholdername'></input>
+    </view>
+
+    <view class='input-box'>
+    <text class='input-name'>总楼层</text>
+    <input type='text' placeholder='请输入' bindinput='' name='houseFloor' value='{{houseFloor}}' placeholder-class='placeholdername'></input>
+    </view>
+
+<view class='input-box'>
+<text class='input-name'>所在楼层</text>
+    <input type='text' placeholder='请输入' bindinput='' name='houseTotleFloor' value='{{houseTotleFloor}}' placeholder-class='placeholdername'></input>
+    </view>
+      <!-- 朝向-->
+    <view class='input-box'>
+    <text class='input-name'>朝向</text>
+        <view class='yearSelect'>
+          <text wx:for='{{houseDirectionArr}}'  wx:key='' class='{{item.checked==true?"checked":""}}' bindtap='clickedBox' data-itemid='{{index}}' data-arr="houseDirectionArr">{{item.name}}</text>
+        </view>
+        <input value='{{houseDirection}}' hidden name='houseDirection'></input>
     </view>
 
     <!-- 户型-->
     <view class='input-box'>
-          <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindHouseTypeChange" value="{{houseTypeindex}}" range="{{houseTypeArr}}" name='houseType'>
-      <view class="picker">    
-      {{houseTypeArr[houseTypeindex]}}
-      </view>
-      <view class="picker pickerPlaceholder {{houseTypeindex?'isshow':''}}">{{houseTypePlaceholder}}</view>
-    </picker>
+    <text class='input-name'>户型</text>
+    <view class='yearSelect'>
+          <text wx:for='{{houseTypeArr}}' wx:key='' class='{{item.checked==true?"checked":""}}' bindtap='clickedBox' data-itemid='{{index}}' data-arr="houseTypeArr">{{item.name}}</text>
+        </view>
+        <input value='{{houseType}}' hidden name='houseType'></input>
     </view>
 
-
-    <view class='input-box'>
-      <input type='number' placeholder='输入房产证号' bindinput='' name='houseCode' value='{{houseCode}}'></input>
-       <icon type="cancel" size="20" color='#ccc'/>
-    </view>
-    <view class='input-box'>
-      <input type='text' placeholder='输入抵押物所在小区' bindinput='' name='houseSqure' value='{{houseSqure}}'></input>
-    </view>
-    <view class='input-box'>
-    <input type='text' placeholder='输入房产面积（平米）' bindinput='' name='houseArea' value='{{houseArea}}'></input>
-    </view>
-    <view class='input-box'>
-    <input type='text' placeholder='输入门牌号' bindinput='' name='houseNumber' value='{{houseNumber}}'></input>
-    </view>
-    <view class='input-box'>
-    <input type='text' placeholder='输入总层数' bindinput='' name='houseFloor' value='{{houseFloor}}'></input>
-    </view>
-
-<view class='input-box'>
-    <input type='text' placeholder='输入所在楼层' bindinput='' name='houseTotleFloor' value='{{houseTotleFloor}}'></input>
-    </view>
       </view>
         <button class='return-btn' form-type='submit' >下一步</button>
-       <navigator url='../personalEvaluation/personalEvaluation'>
+       <!-- <navigator url='../personalEvaluation/personalEvaluation'>
             <button class='return-btn pre-step'>上一步</button>
-      </navigator>
+      </navigator> -->
       </form>
 </view>

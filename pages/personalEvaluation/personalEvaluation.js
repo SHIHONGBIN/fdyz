@@ -7,27 +7,75 @@ Page({
   data: {
     //pickerview
     isClick: false,
-    sexArr: ['男', '女'],
-    sexindex:'',
+    chechedColor:'#3f9cfa',
+    sexArr: [{
+      name: '男士',
+      checked: true
+    },{
+        name: '女士',
+        checked: false
+      }],
     region: [],
     customItem: '全部',
     workArr: ['it', '财务', '教练', '老板'],
     sexindex: '',
-    isWorkArr: ['在职', '离职'],
-    workyear:'',
+    isWorkArr: [{
+        name: '否',
+        checked: false
+    },{
+        name: '是',
+        checked: true
+      }],
+      workyear:'',
+    workyearArr:[{
+      name:'无经验',
+      checked:false
+    }, {
+        name: '1-2年',
+        checked: false
+      }, {
+        name: '3-5年',
+        checked: false
+      }, {
+        name: '6-10年',
+        checked: false
+      }, {
+        name: '11-15年',
+        checked: false
+      }, {
+        name: '16-20年',
+        checked: false
+      }, {
+        name: '20年以上',
+        checked: false
+      }],
     isWorkIndex:'',
     sexindex: '', 
-    salaryArr: ['1000~2000', '2001~4000','4001~6000','6001~10000','10001~15000','15000以上'],
+    salaryArr: [{
+      name: '无',
+      checked: false
+    }, {
+        name: '3千以下',
+        checked: false
+      }, {
+        name: '3-6千',
+        checked: false
+      }, {
+        name: '0.6-1.5万',
+        checked: false
+      }, {
+        name: '1.5-2万',
+        checked: false
+      }, {
+        name: '2万以上',
+        checked: false
+      }],
     salaryindex: '',
-    sexPlaceholder:'选择性别（必选）',
-    addressPlaceholder: '选择户口所在地（必选）',
+    addressPlaceholder: '请选择',
     workPlaceholder: '选择您所从事的行业',
-    isWorkPlaceholder: '是否在职',
-    salaryPlaceholder: '选择月收入区间',
     //初始化数据
     initAge:''
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -45,16 +93,53 @@ Page({
           workindex: res.data.worktype || '',
           isWorkindex: res.data.iswork || '',
           salaryindex: res.data.salary || ''
-        })
+        });
+        //计算性别 true
+        var sex = res.data.sex;
+        var sexarr = that.data.sexArr;
+        that.computedFn(sexarr, sex)
+        that.setData({
+          sexArr: sexarr
+        });
+        //计算是否在职
+        var work = res.data.iswork;
+        var workarr = that.data.isWorkArr;
+        that.computedFn(workarr, work)
+        that.setData({
+          isWorkArr: workarr
+        });
+        //计算工作年限
+        var year = res.data.workyear;
+        var yeararr = that.data.workyearArr;
+        that.computedFn(yeararr, year)
+        that.setData({
+          workyearArr: yeararr
+        });
+        //计算收入区间
+        var salary = res.data.salary;
+        var salaryarr = that.data.salaryArr;
+        that.computedFn(salaryarr, salary)
+        that.setData({
+          salaryArr: salaryarr
+        });
       },
-    })
+    });
+   
     //加载传过来的title标题
     const title = options.title;
     wx.setNavigationBarTitle({
       title: title,
     })
   },
-
+  computedFn: function(arr,arritem){
+    arr.map(function (item, index) {
+      if (item.name == arritem) {
+        item.checked = true
+      } else {
+        item.checked = false
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -103,11 +188,6 @@ Page({
   onShareAppMessage: function () {
 
   },
-  bindPickerChange: function (e) {
-    this.setData({
-      sexindex: e.detail.value
-    })
-  },
   bindRegionChange: function (e) {
     this.setData({
       region: e.detail.value
@@ -116,16 +196,6 @@ Page({
   bindWorkChange: function (e) {
     this.setData({
       workindex: e.detail.value
-    })
-  },
-  bindisWorkChange: function (e) {
-    this.setData({
-      isWorkindex: e.detail.value
-    })
-  },
-  bindSalaryChange: function (e) {
-    this.setData({
-      salaryindex: e.detail.value
     })
   },
   //提交表单
@@ -161,7 +231,7 @@ Page({
             //提交数据表单
 
           }
-        }
+        };
         //更新缓存
         wx.setStorage({
           key: 'testtable1',
@@ -170,6 +240,28 @@ Page({
         //下一页
         wx.navigateTo({
           url: '../personalEvaluation1/personalEvaluation1',
-        })
+        });
+  },
+  //选择年份 月薪范围
+  clickedBox: function (e) {
+    const curid = e.currentTarget.dataset.itemid;
+    //动态获取当前arr 然后直接赋值
+    var name = e.currentTarget.dataset.arr;
+    const arr = this.data[name];
+    arr.map(function (item, index) {
+      if (index == curid) {
+        item.checked = true
+      } else {
+        item.checked = false
+      }
+    });
+    const obj = {};
+    obj[name] = arr;
+    this.setData(obj);
+    //赋值给hidden的input元素 赋值给value上面 
+    var hiddenname = name.replace('Arr','');
+    const hiddennameobj = {};
+    hiddennameobj[hiddenname] = arr[curid].name;
+    this.setData(hiddennameobj)
   }
 })

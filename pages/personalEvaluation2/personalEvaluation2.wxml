@@ -4,48 +4,54 @@
   </view>
   <!--单选-->
   <form bindsubmit="formSubmit">
-  <view class='zx-choice1' wx:for="{{item}}"> 
-      <block  wx:if="{{item.radio == 1}}">
-       <text class='text-title'>{{item.question}}</text>
-      <radio-group class="radio-group" bindchange="radioChange" name="{{item.fullname}}">
-        <view class='choice-box' wx:for="{{item.content}}">
-                <label for='{{item.value}}'>{{item.question}}</label>
-                <radio class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}">
-                    <!-- <text>{{item.value}}</text> -->
-                </radio>
-        </view>
-       </radio-group>
-       </block>
-       <!-- 多选 -->
-       <block    wx:elif="{{item.radio == 0}}">
+    <view class='zx-choice1' wx:for="{{item}}">
+      <block wx:if="{{item.radio == 1}}">
+        <text class='text-title'>{{item.question}}</text>
+        <radio-group class="radio-group" bindchange="radioChange" name="{{item.fullname}}">
+          <view class='choice-box' wx:for="{{item.content}}">
+            <label for='{{item.value}}'>{{item.question}}</label>
+            <radio class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}">
+              <!-- <text>{{item.value}}</text> -->
+            </radio>
+          </view>
+        </radio-group>
+      </block>
+      <!-- 多选 -->
+      <block wx:elif="{{item.radio == 0}}">
         <text class='text-title'>{{item.question}}</text>
         <checkbox-group class="radio-group" bindchange="checkboxChange" name="{{item.fullname}}">
-        <view class='choice-box' wx:for="{{item.content}}">
-                <label for='{{item.value}}'>{{item.question}}</label>
-                <checkbox class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}"> 
-                    <!-- <text>{{item.value}}</text> -->
-               </checkbox>
-        </view>
-       </checkbox-group>
-       </block>
-       <!-- 只有一个选项 -->
-       <block wx:else>
+          <view class='choice-box' wx:for="{{item.content}}">
+            <label for='{{item.value}}'>{{item.question}}</label>
+            <checkbox class="radio" wx:key="name"  value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}">
+              <!-- <text>{{item.value}}</text> -->  
+            </checkbox>
+            <block wx:if='{{item.checked}}'>
+            <icon type='success' color='#1291e9' class='success' size='20'></icon>
+            </block>
+            <block wx:else>
+            <text class='circeltext'></text>
+            </block>
+          </view>
+        </checkbox-group>
+      </block>
+      <!-- 只有一个选项 -->
+      <block wx:else>
         <view class='strongLabel'>
-           <checkbox-group class="radio-group" bindchange="radioChange"  name="{{item.fullname}}">
-        <view class='choice-box' wx:for="{{item.content}}">
-                <label for='{{item.value}}'>{{item.question}}</label>
-                <checkbox class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}">
-                    <!-- <text>{{item.value}}</text> -->
-                </checkbox>
+          <checkbox-group class="radio-group" bindchange="radioChange" name="{{item.fullname}}">
+            <view class='choice-box' wx:for="{{item.content}}">
+              <label for='{{item.value}}'>{{item.question}}</label>
+              <checkbox class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}">
+                <!-- <text>{{item.value}}</text> -->
+              </checkbox>
+            </view>
+          </checkbox-group>
         </view>
-       </checkbox-group>
-       </view>
-       </block>
-  </view>
-      <button class='return-btn' form-type='submit'>提交</button>
-      <navigator url='../personalEvaluation1/personalEvaluation1'>
-            <button class='return-btn pre-step'>上一步</button>
-      </navigator>
+      </block>
+    </view>
+    <button class='return-btn' form-type='submit'>提交</button>
+    <navigator url='../personalEvaluation1/personalEvaluation1'>
+      <button class='return-btn pre-step'>上一步</button>
+    </navigator>
 
-      </form>
+  </form>
 </view>

@@ -15,21 +15,5 @@
                荐合适的金融机构/资金方，也为金融机构/资金方
                推荐批量的产权人/借款人客户</view>
   </view>
-  <form bindsubmit='bindsubmit'>
-    <view class='submitDiligence'>
-      <view class='input-box'>
-        <input type='text' placeholder='输入联系人姓名' placeholder-class='placeholderInput'></input>
-      </view>
-      <view class='input-box'>
-        <input type='number' placeholder='输入联系人手机号' placeholder-class='placeholderInput'></input>
-      </view>
-    </view>
-    <view class='textarea-box'>
-      <text class='t-b-title'>需求描述</text>
-      <view class='t-b-textarea'>
-        <textarea></textarea>
-      </view>
-    </view>
-
-  </form>
+  <NeedsForm></NeedsForm>
 </view>

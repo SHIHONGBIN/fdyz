@@ -32,13 +32,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "personalEvaluation",
 					"pathName": "pages/personalEvaluation/personalEvaluation",
-					"query": ""
+					"query": "title=个人测评"
 				},
 				{
 					"id": -1,
@@ -59,10 +59,16 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "dueDiligence",
 					"pathName": "pages/dueDiligence/dueDiligence",
-					"query": "title='尽职调查'"
+					"query": "title=尽职调查"
+				},
+				{
+					"id": 5,
+					"name": "porpertyRightAgency",
+					"pathName": "pages/propertyRightAgency/propertyRightAgency",
+					"query": "title=权证代办"
 				}
 			]
 		}

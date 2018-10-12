@@ -1,0 +1,7 @@
+<view class="lightbox">
+  <view class='l-b-con'>
+  <slot></slot>
+  <view class='buttonbtn' bindtap='closeBox'>确定</view>
+  </view>
+</view>
+<view class='lightboxbg'></view>

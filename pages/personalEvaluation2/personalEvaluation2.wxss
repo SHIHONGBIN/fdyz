@@ -1,7 +1,7 @@
 .pe-top{ height: 126rpx; background-color: #fff; padding-top: 38rpx;}
 .pe-top image{width: 608rpx; height: 90rpx; display: block; margin: 0 auto;}
-.return-btn{ height: 80rpx; line-height: 80rpx; text-align: center; color:#fff; border-radius:30rpx;background-color: #00cdac; margin: 29rpx 25rpx 19rpx 25rpx }
-.pre-step{background-color: transparent; color:#00cdac; border:solid 1rpx #00cdac}
+.return-btn{ height: 80rpx; line-height: 80rpx; text-align: center; color:#fff; border-radius:30rpx;background-color: #1291e9; margin: 29rpx 25rpx 19rpx 25rpx }
+.pre-step{background-color: transparent; color:#1291e9; border:solid 1rpx #1291e9}
 .zx-choice1{ overflow: hidden; zoom:1; margin-top: 15rpx; background-color: #fff; padding:20rpx 20rpx 0 20rpx; font-size: 28rpx;}
 .zx-choice1 .text-title{ font-weight: bold}
 .choice-box{ line-height:40rpx;
@@ -13,14 +13,18 @@ padding-top:15rpx;
 padding-bottom:15rpx;
 }
 .choice-box radio,.choice-box checkbox{ position:absolute;
+z-index: 99;
 right:-73rpx;
 top:50%;
 transform:translateY(-50%);
 margin-top: -15rpx;
+border-radius: 50%;
 }
 .choice-box checkbox{ float: right}
 .radio-group2{ display: inline-block;}
 .strongLabel label{ font-weight: bold}
-.strongLabel .choice-box{ padding: 0}
+.strongLabel .choice-box{ padding: 0;}
 .strongLabel .choice-box checkbox{ margin-top: -7.5rpx}
 .radio-group .check-box label{ display: block; width:100rpx;}
+.choice-box .circeltext,.choice-box icon.success{ display: inline-block; border-radius: 50%; height: 34rpx;  border: solid 1px #e0e0e0; width: 34rpx; position: absolute; right: -73rpx; top: 0; z-index: 1;}
+.choice-box checkbox{ opacity: 0}

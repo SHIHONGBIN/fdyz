@@ -1,0 +1,9 @@
+<view class='dueDiligence-box'>
+  <view class='service-intro'>
+   与银行有抵押代办合作模式的银行有华夏银行、招商银行、民生银行、浦发银行4家，主要代理银行新房贷款抵押、存量房贷款抵押、银行对公业务抵押登记。其中，华夏、招行、民生3家银行平均每年完成 3000 多笔抵押登记，累计9000 笔。
+     <text>费用收取采取按年费包干制或按笔数收费的形式。
+  </text>
+  </view>
+
+  <NeedsForm></NeedsForm>
+</view>

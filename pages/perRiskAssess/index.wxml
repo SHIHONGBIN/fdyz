@@ -1,0 +1,59 @@
+<view class='per-risk-assess'>
+  <view class='bac-white'>
+    <view class="container-fluid">
+      <view class='query-title'>被查询人信息</view>
+      <view class='mui-table-view'>
+        <view class='mui-table-view-cell'>
+          <text>姓名</text>
+          <input type='text' placeholder="必填" auto-focus/>
+        </view>
+        <view class='mui-table-view-cell'>
+          <text>手机号</text>
+          <input type='number' placeholder="必填" auto-focus/>
+          <view class='phone-trips'>
+            <image class='images-trips' src='/images/newFD/icon-trips.png'></image>
+            您输入的手机号不是11位数
+          </view>
+        </view>
+        <view class='mui-table-view-cell'>
+          <text>身份证号码</text>
+          <input type='idcard' placeholder="必填" auto-focus/>
+          <view class='phone-trips'>
+            <image class='images-trips' src='/images/newFD/icon-trips.png'></image>
+            您的身份证号为空
+          </view>
+        </view>
+        <view class='mui-table-view-cell'>
+          <text>银行卡卡号1</text>
+          <input type='number' placeholder="必填" auto-focus/>
+        </view>
+        <view class='mui-table-view-cell'>
+          <text>银行卡卡号2</text>
+          <input type='number' placeholder="必填" auto-focus/>
+        </view>
+        <view class='mui-table-view-cell'>
+          <text>银行卡卡号3</text>
+          <input type='number' placeholder="必填" auto-focus/>
+        </view>
+        <view class='mui-table-view-cell'>
+          <text>常用邮箱</text>
+          <input type='number' placeholder="必填" auto-focus/>
+        </view>
+        <view class='mui-table-view-cell'>
+          <text>座机号码</text>
+          <input type='number' placeholder="必填" auto-focus/>
+        </view>
+        <view class='mui-table-view-cell'>
+          <text>办公号码</text>
+          <input type='number' placeholder="必填" auto-focus/>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='container-fluid'>
+    <button class='btn-next' form-type='submit'>下一步</button>
+  </view>
+
+</view>

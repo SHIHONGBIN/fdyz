@@ -6,7 +6,8 @@
     "pages/personalEvaluation1/personalEvaluation1",
     "pages/personalEvaluation2/personalEvaluation2",
     "pages/login/login",
-    "pages/dueDiligence/dueDiligence"
+    "pages/dueDiligence/dueDiligence",
+    "pages/propertyRightAgency/propertyRightAgency"
   ],
   "window": {
     "backgroundTextStyle": "light",

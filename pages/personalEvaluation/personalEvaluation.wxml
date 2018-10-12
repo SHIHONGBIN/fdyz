@@ -2,69 +2,72 @@
   <view class='pe-top'>
     <image src='../../images/per-cp-img.png'></image>
   </view>
-  <form bindsubmit='formSubmit' >
-  <view class='pe-table1'>
-    <view class='input-box'>
-      <input type='number' placeholder='输入您的年龄（必填）' bindinput='bindNumberInput' name='age' value='{{initAge}}'></input>
-    </view>
-    <!-- 男女-->
-    <view class='input-box'>
-          <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindPickerChange" value="{{sexindex}}" range="{{sexArr}}" name='sex'>
-      <view class="picker">    
-      {{sexArr[sexindex]}}
+  <form bindsubmit='formSubmit'>
+    <view class='pe-table1'>
+      <view class='input-box'>
+        <text class='input-name'>年龄</text>
+        <input type='number' placeholder='必填' bindinput='bindNumberInput' name='age' value='{{initAge}}'></input>
       </view>
-      <view class="picker pickerPlaceholder {{sexindex?'isshow':''}}">{{sexPlaceholder}}</view>
-    </picker>
-    </view>
-    <!-- 选择户口所在地 -->
-     <view class='input-box'>
-           <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" name='address'>
-    <view class="picker">
-      {{region[0]}} {{region[1]}} {{region[2]}}
-    </view>
-    <view class="picker pickerPlaceholder {{region[0]?'isshow':''}}">{{addressPlaceholder}}</view>
-  </picker>
-    </view>
-  <!-- 工作年限 -->
- <view class='input-box'>
-      <input type='number' placeholder='输入您的工作年限' bindinput='bindNumberInput' name='workyear' value='{{workyear}}'></input>
-    </view>
+      <!-- 男女-->
+      <view class='input-box'>
+        <text class='input-name'>性别</text>
+        <radio-group class="radio-group" bindchange="radioSexChange" name='sex'>
+          <label class="radio" wx:for="{{sexArr}}">{{item.name}}
+            <radio value="{{item.name}}" checked="{{item.checked}}" color='{{chechedColor}}' />{{item.value}}
+          </label>
+        </radio-group>
+      </view>
+      <!-- 选择户口所在地 -->
+      <view class='input-box'>
+        <text class='input-name'>户口所在地</text>
+        <image src='../../images/icon-bottom-arrow2.png'></image>
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" name='address'>
+          <view class="picker">
+            {{region[0]}} {{region[1]}} {{region[2]}}
+          </view>
+          <view class="picker pickerPlaceholder {{region[0]?'isshow':''}}">{{addressPlaceholder}}</view>
+        </picker>
+      </view>
+      <!-- 工作年限 -->
+      <view class='input-box'>
+        <text class='input-name'>工作年限</text>
+        <view class='yearSelect'>
+          <text wx:for='{{workyearArr}}' class='{{item.checked==true?"checked":""}}' bindtap='clickedBox' data-itemid='{{index}}' data-arr="workyearArr">{{item.name}}</text>
+        </view>
+        <input value='{{workyear}}' hidden name='workyear'></input>
+      </view>
 
       <!-- 从事行业-->
-    <view class='input-box'>
-          <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindWorkChange" value="{{workindex}}" range="{{workArr}}" name='worktype'>
-      <view class="picker">    
-      {{workArr[workindex]}}
+      <view class='input-box'>
+        <text class='input-name'>所从事的行业</text>
+        <image src='../../images/icon-bottom-arrow2.png'></image>
+        <picker bindchange="bindWorkChange" value="{{workindex}}" range="{{workArr}}" name='worktype'>
+          <view class="picker">
+            {{workArr[workindex]}}
+          </view>
+          <view class="picker pickerPlaceholder {{workindex?'isshow':''}}">{{workPlaceholder}}</view>
+        </picker>
       </view>
-      <view class="picker pickerPlaceholder {{workindex?'isshow':''}}">{{workPlaceholder}}</view>
-    </picker>
-    </view>
-        <!-- 是否在职-->
-    <view class='input-box'>
-          <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindIsWorkChange" value="{{isWorkindex}}" range="{{isWorkArr}}" name='iswork'>
-      <view class="picker">    
-      {{isWorkArr[isWorkindex]}}
-      </view>
-      <view class="picker pickerPlaceholder {{isWorkindex?'isshow':''}}">{{isWorkPlaceholder}}</view>
-    </picker>
-    </view>
-
-        <!-- 月收入区间-->
-    <view class='input-box'>
-          <image src='../../images/icon-bottom-arrow2.png'></image>
-    <picker bindchange="bindSalaryChange" value="{{salaryindex}}" range="{{salaryArr}}" name='salary'>
-      <view class="picker">    
-      {{salaryArr[salaryindex]}}
-      </view>
-      <view class="picker pickerPlaceholder {{salaryindex?'isshow':''}}">{{salaryPlaceholder}}</view>
-    </picker>
-    </view>
+      <!-- 是否在职-->
+      <view class='input-box'>
+        <text class='input-name'>是否在职</text>
+        <radio-group class="radio-group" bindchange="isWorkChange" name='iswork'>
+          <label class="radio" wx:for="{{isWorkArr}}">{{item.name}}
+            <radio value="{{item.name}}" checked="{{item.checked}}" color='{{chechedColor}}' size="10" />{{item.value}}
+          </label>
+        </radio-group>
       </view>
 
-      <button class='return-btn' form-type='submit'>下一步</button>
-</form>
+      <!-- 月收入区间-->
+      <view class='input-box'>
+        <text class='input-name'>选择月收入区间</text>
+        <view class='yearSelect'>
+          <text wx:for='{{salaryArr}}' class='{{item.checked==true?"checked":""}}' bindtap='clickedBox' data-itemid='{{index}}' data-arr="salaryArr">{{item.name}}</text>
+        </view>
+        <input value='{{salary}}' hidden name='salary'></input>
+      </view>
+    </view>
+
+    <button class='return-btn' form-type='submit'>下一步</button>
+  </form>
 </view>

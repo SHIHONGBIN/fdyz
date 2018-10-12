@@ -1,0 +1,6 @@
+.lightbox{width: 582rpx; height: auto; background-color: #fff; border-radius: 8rpx; position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%); z-index: 9999;}
+.l-b-con{ width: 100%; height: 100%;  display: flex; flex-direction: column; align-items: center;}
+.l-b-con image{width: 112rpx; height: 112rpx; margin-top: 42rpx auto 0 auto; display: block; text-align: center}
+.l-b-con text{ margin-top: 50rpx; display: block}
+.l-b-con .buttonbtn{width: 168rpx; height: 54rpx; line-height: 54rpx; text-align: center; background-color: #3f9cfa; color:#fff; margin-top: 42rpx; margin-bottom: 51rpx;  border-radius: 4rpx; font-size: 30rpx}
+.lightboxbg{ background-color: rgba(0,0,0,.3); width: 100%; height: 100%;position: fixed; left: 0; top: 0; z-index: 9998}
