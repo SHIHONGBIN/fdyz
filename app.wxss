@@ -209,6 +209,23 @@ input,.input-view{ height: 90rpx; line-height: 90rpx; font-size: 28rpx;}
 .yearSelect text:nth-child(4n){margin-right: 0}
 .yearSelect text{ flex-basis:152rpx; height: 50rpx; border: solid 1px #eee; border-radius: 4rpx; text-align: center; line-height: 50rpx; display: inline-block; font-size: 28rpx; margin-top: 22rpx;margin-right: 25rpx;}
 .pe-container .yearSelect text.checked{ border-color:#3f9cfa}
+.person-form .pre-step{background-color: transparent; color:#1291e9; border:solid 1rpx #1291e9}
+.person-form .zx-choice1{ overflow: hidden; zoom:1; margin-top: 15rpx; background-color: #fff; padding:20rpx 20rpx 0 20rpx; font-size: 28rpx;}
+.person-form .zx-choice1 .text-title{ font-weight: bold}
+.person-form .choice-box{ line-height:40rpx;min-height:60rpx;width:90%;position:relative;vertical-align:middle;padding-top:15rpx;padding-bottom:15rpx;}
+.person-form .choice-box radio,.choice-box checkbox{ position:absolute;z-index: 99;right:-73rpx;top:50%;transform:translateY(-50%);margin-top: -15rpx;border-radius: 50%;}
+.person-form .choice-box checkbox{ float: right}
+.person-form .radio-group2{ display: inline-block;}
+.person-form .strongLabel label{ font-weight: bold}
+.person-form .strongLabel .choice-box{ padding: 0;}
+.person-form .radio-group .check-box label{ display: block; width:100rpx;}
+.person-form .choice-box .circeltext,.choice-box image.success{ display: inline-block; border-radius: 50%; height: 33rpx; width: 33rpx; position: absolute; right: -73rpx; top: 15rpx; z-index: 1;}
+.person-form .radio-group .choice-box text.circeltext{ top: 15rpx}
+.person-form .choice-box image.success{width:35rpx; height: 35rpx;}
+.person-form .choice-box .circeltext{ border: solid 1px #e0e0e0}
+.person-form .choice-box checkbox,.choice-box radio{ opacity: 0}
+.person-form .strongLabel .choice-box text.circeltext{top: 5rpx;}
+.person-form .strongLabel .choice-box image{ top: 4rpx;} 
 /*测评表单样式over*/
 /* 个人风险评测样式start */
 .query-title{font-weight: bold;font-size: 42rpx;color: #333;padding-top: 54rpx;}

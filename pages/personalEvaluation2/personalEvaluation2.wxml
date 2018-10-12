@@ -3,30 +3,36 @@
     <image src='../../images/cp-zx-img.png'></image>
   </view>
   <!--单选-->
-  <form bindsubmit="formSubmit">
+  <form bindsubmit="formSubmit" class='person-form'>
     <view class='zx-choice1' wx:for="{{item}}">
       <block wx:if="{{item.radio == 1}}">
         <text class='text-title'>{{item.question}}</text>
-        <radio-group class="radio-group" bindchange="radioChange" name="{{item.fullname}}">
+        <radio-group class="radio-group" bindchange="radioChange" name="{{item.fullname}}" data-id="{{item}}">
           <view class='choice-box' wx:for="{{item.content}}">
             <label for='{{item.value}}'>{{item.question}}</label>
-            <radio class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}">
+            <radio class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}" data-id='{{item}}'>
               <!-- <text>{{item.value}}</text> -->
             </radio>
+            <block wx:if='{{item.checked}}'>
+            <image src='../../images/personaltexticon.png' class='success'></image>
+            </block>
+            <block wx:else>
+            <text class='circeltext'></text>
+            </block>
           </view>
         </radio-group>
       </block>
       <!-- 多选 -->
       <block wx:elif="{{item.radio == 0}}">
         <text class='text-title'>{{item.question}}</text>
-        <checkbox-group class="radio-group" bindchange="checkboxChange" name="{{item.fullname}}">
+        <checkbox-group class="radio-group" bindchange="checkboxChange" name="{{item.fullname}}" data-id='{{item}}'>
           <view class='choice-box' wx:for="{{item.content}}">
-            <label for='{{item.value}}'>{{item.question}}</label>
-            <checkbox class="radio" wx:key="name"  value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}">
+            <label for='{{item.value}}' data-id='{{item}}'>{{item.question}}</label>
+            <checkbox class="radio" wx:key="name"  value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}" data-id='{{item}}'>
               <!-- <text>{{item.value}}</text> -->  
             </checkbox>
             <block wx:if='{{item.checked}}'>
-            <icon type='success' color='#1291e9' class='success' size='20'></icon>
+            <image src='../../images/personaltexticon2.png' class='success'></image>
             </block>
             <block wx:else>
             <text class='circeltext'></text>
@@ -37,21 +43,27 @@
       <!-- 只有一个选项 -->
       <block wx:else>
         <view class='strongLabel'>
-          <checkbox-group class="radio-group" bindchange="radioChange" name="{{item.fullname}}">
+          <checkbox-group class="radio-group" bindchange="checkboxChange" name="{{item.fullname}}" data-id='{{item}}'>
             <view class='choice-box' wx:for="{{item.content}}">
               <label for='{{item.value}}'>{{item.question}}</label>
-              <checkbox class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}">
+              <checkbox class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}"  data-id='{{item}}'>
                 <!-- <text>{{item.value}}</text> -->
               </checkbox>
+                <block wx:if='{{item.checked}}'>
+             <image src='../../images/personaltexticon2.png' class='success'></image>
+            </block>
+            <block wx:else>
+            <text class='circeltext'></text>
+            </block>
             </view>
           </checkbox-group>
         </view>
       </block>
     </view>
     <button class='return-btn' form-type='submit'>提交</button>
-    <navigator url='../personalEvaluation1/personalEvaluation1'>
+    <!-- <navigator url='../personalEvaluation1/personalEvaluation1'>
       <button class='return-btn pre-step'>上一步</button>
-    </navigator>
+    </navigator> -->
 
   </form>
 </view>

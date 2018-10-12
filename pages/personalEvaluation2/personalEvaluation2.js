@@ -7,6 +7,7 @@ Page({
   data: {
     //pickerview
     isClick: false,
+    curindex:'',
     item:[{
       // 1 ： 单选    0： 多选（多个） 2：多选（单个） 
       question:'1. 当前逾期（单选）',
@@ -33,7 +34,7 @@ Page({
         question:'',
         fullname: 'name3',
         radio: 2,
-        content: [{ id: 0, name: 'oneRadio0', value: 'o0', question: '3. 没有过执行记录' }]
+        content: [{ id: 0, name: 'oneRadio0', value: 'o0', checked: false, question: '3. 没有过执行记录' }]
     },
       {
         question: '4. 否唯一住房（单选）',
@@ -62,12 +63,12 @@ Page({
         question: '',
         radio: 2,
         fullname: 'name6',
-        content: [{ id: 0,name: 'moreCredit', value: 'm0', question: '6. 存在显性负债或多头民间借贷' }]
+        content: [{ id: 0, name: 'moreCredit', value: 'm0', checked: false, question: '6. 存在显性负债或多头民间借贷' }]
       } , {
         question: '',
         radio: 2,
         fullname: 'name7',
-        content: [{ id: 0, name: 'personal0', value: 'p0', question: '7. 离异/高龄单身' }]
+        content: [{ id: 0, name: 'personal0', value: 'p0', checked: false, question: '7. 离异/高龄单身' }]
       },]
   },
 
@@ -128,52 +129,76 @@ Page({
   },
   radioChange:function(e){
     //当前选择对象的的name的值
-    console.log(e.detail.value)
+    //当前选择对象
+    var obj = e.currentTarget.dataset.id;
+    var objquestion = obj.question;
+    var arr = this.data.item;
+    var curindex = 0;
+    //选择当前checked的radio只有一个值
+    var selectArr = e.detail.value;
+      //多个radio题目
+      arr.map(function (item, index) {
+        if (item.question == objquestion) {
+          curindex = index
+        }
+      });
+    
+    //获取索引
+    // //当前选择模块全部为false 然后选中的项目变为true
+    obj.content.map(function (item, index) {
+      let indexP = index;
+      arr[curindex].content[indexP].checked = false;
+      if (selectArr == item.name) {
+            arr[curindex].content[indexP].checked = true
+        }
+    });
+    // //重新赋值当前对象更新
+    var obj = {};
+    obj['item'] = arr;
+    this.setData(obj)
   },
   checkboxChange: function(e){
-    //当前选择对象的的name的值 模拟checkbox改变图形 借助name判断当前哪个选择模块
+    //当前选择对象
+    var obj = e.currentTarget.dataset.id;
+    var objquestion = obj.question;
+    var arr = this.data.item;
+    var curindex = 0;
+    //选择当前checked数组
     var selectArr = e.detail.value;
-    console.log(selectArr)
-    var itemArr = this.data.item;
-    var that = this;
-    itemArr.map(function(item, index, arr1){
-      //找出来数组
-      let con = item.content;
-      //遍历
-      let curindex = index;
-      //变量保存当前数组
-      con.map(function(conitem, conindex, arr2){
-        //循环当前选择的数组 找出一样的name名字 输出当前序号index
-        for(var j = 0; j < selectArr.length; j++){
-           if(selectArr[j] == conitem.name){
-             that.setData({
-               curItemIndex: curindex
-             })
-           }
+   //只有一个checkbox题目时候
+    if (objquestion == ''){
+      objquestion = obj.content[0].question;
+      arr.map(function (item, index) {
+        if (item.content[0].question == objquestion) {
+          curindex = index
         }
-      })
-    });
-    console.log(that.curItemIndex)
-    var newArr = itemArr[that.curItemIndex].content;
-    
-    //当前选择模块全部为false 然后选中的项目变为true
-    newArr.map(function(item,index){
+      });
+    }else{
+      //多个checkbox题目
+      arr.map(function (item, index) {
+        if (item.question == objquestion) {
+          curindex = index
+        }
+      });
+    }
+    //获取索引
+    // //当前选择模块全部为false 然后选中的项目变为true
+    obj.content.map(function(item,index){
       let itemP = item;
       let indexP= index;
-      itemP.checked = false;
+      arr[curindex].content[indexP].checked = false;
       if (selectArr.length != 0){
         selectArr.map(function (item, index) {
           if (item == itemP.name) {
-            newArr[indexP].checked = true
+            arr[curindex].content[indexP].checked = true
           }
         })
       }
     });
-    //重新赋值当前对象更新
+    // //重新赋值当前对象更新
     var obj=  {};
-    obj['item'] = itemArr; 
+    obj['item'] = arr; 
     this.setData(obj)
-    console.log(itemArr)
   },
   //提交
   formSubmit: function(e){
@@ -182,8 +207,8 @@ Page({
     //获取前两个表单的值
     const testtable1 = wx.getStorageSync('testtable1');
     const testtable2 = wx.getStorageSync('testtable2');
-
-  //post提交
+   
+    //post提交
     wx.showToast({
       title: '提交成功',
     });
