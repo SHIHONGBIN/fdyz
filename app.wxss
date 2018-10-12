@@ -226,6 +226,9 @@ input,.input-view{ height: 90rpx; line-height: 90rpx; font-size: 28rpx;}
 .person-form .choice-box checkbox,.choice-box radio{ opacity: 0}
 .person-form .strongLabel .choice-box text.circeltext{top: 5rpx;}
 .person-form .strongLabel .choice-box image{ top: 4rpx;} 
+.person-form .radio-group{ margin-top: 25rpx;}
+.person-form .strongLabel .radio-group{ margin-top: 0}
+.person-form .choice-box label{ color:#333}
 /*测评表单样式over*/
 /* 个人风险评测样式start */
 .query-title{font-weight: bold;font-size: 42rpx;color: #333;padding-top: 54rpx;}

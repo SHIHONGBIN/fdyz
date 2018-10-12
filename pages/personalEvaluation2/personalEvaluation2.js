@@ -57,7 +57,7 @@ Page({
           {
             id: 0,name: 'repayBility0', value: 'rb0', checked: 'true', question: '（1）可提供详细的经营情况证明，企业经营或个人银行流水可覆盖一年期贷款的本息' },
           {
-            id: 1,name: 'repayBility1', value: 'rb1', question: '（1）无法提供经营情况，无法提供流水等资料证明其有偿还本息的能力' },
+            id: 1,name: 'repayBility1', value: 'rb1', question: '（2）无法提供经营情况，无法提供流水等资料证明其有偿还本息的能力' },
         ]
       }, {
         question: '',

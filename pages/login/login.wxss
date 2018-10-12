@@ -51,7 +51,8 @@ page{ background-color: #fff;}
 .login-form .section .placeholder-text{ position: absolute; left: 0; top: 50%; transform: translateY(-50%); color:#cbcbcb; transition:all .5s; font-size: 28rpx; margin-top: 14rpx; }
 .login-form .clicked .placeholder-text{transform: translateY(-150%); font-size: 24rpx; color:#333; margin-top: 0}
 .slot-con{ text-align: center}
-.slot-con image{ margin: 57rpx auto 0 auto}
+.slot-con>image{ margin: 57rpx auto 0 auto}
 .lightboxhide{ display: none}
 .slot-con text{ font-size: 32rpx;}
-.slot-con .subTips{ font-size: 28rpx; color:#b3b3b3; margin-top: 10rpx;}
+.slot-con .subTips{ font-size: 28rpx; color:#ffa66b; margin-top: 10rpx; }
+.slot-con .subTips image{ display: inline-block; height: 20rpx; width: 20rpx; margin-right: 16rpx;}

@@ -118,7 +118,7 @@ Page({
       //测试不通过
       this.setData({
         wrongBox: true,
-        wrongText: '图片验证码错误'
+        wrongText: '请输入四位数验证码'
       })
       return false;
     };

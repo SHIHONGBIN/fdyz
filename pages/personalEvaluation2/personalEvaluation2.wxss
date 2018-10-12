@@ -1,3 +1,1 @@
-.pe-top{ height: 126rpx; background-color: #fff; padding-top: 38rpx;}
-.pe-top image{width: 608rpx; height: 90rpx; display: block; margin: 0 auto;}
-/* .return-btn{ height: 80rpx; line-height: 80rpx; text-align: center; color:#fff; border-radius:30rpx;background-color: #1291e9; margin: 29rpx 25rpx 19rpx 25rpx } */
+
