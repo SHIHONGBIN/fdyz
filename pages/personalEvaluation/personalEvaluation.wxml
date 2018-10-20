@@ -1,73 +1,255 @@
+<!----------------------个人table--------------------->
+<block wx:if='{{pageindex==0}}'>
+  <view class="pe-container">
+    <view class='pe-top'>
+      <image src='../../images/per-cp-img.png'></image>
+    </view>
+      <view class='pe-table1'>
+        <view class='input-box'>
+          <text class='input-name'>年龄</text>
+          <input type='number' placeholder='必填' bindinput='bindtextinput' name='age' value='{{initAge}}' data-name='age'></input>
+        </view>
+        <!-- 男女-->
+        <view class='input-box'>
+          <text class='input-name'>性别</text>
+          <radio-group class="radio-group" bindchange="radioSexChange" name='sex'>
+            <label class="radio" wx:for="{{config.sexArr}}">{{item.name}}
+              <radio value="{{item.name}}" checked="{{item.checked}}" color='{{chechedColor}}' />{{item.value}}
+            </label>
+          </radio-group>
+        </view>
+        <!-- 选择户口所在地 -->
+        <view class='input-box'>
+          <text class='input-name'>户口所在地</text>
+          <image src='../../images/icon-bottom-arrow2.png'></image>
+          <picker mode="region" bindchange="bindRegionChange" custom-item="{{customItem}}" name='address' data-name='address'>
+            <view class="picker">
+              {{config.address[0]}} {{config.address[1]}} {{config.address[2]}}
+            </view>
+            <view class="picker pickerPlaceholder {{config.address[0]?'isshow':''}}">{{addressPlaceholder}}</view>
+          </picker>
+        </view>
+        <!-- 工作年限 -->
+        <view class='input-box'>
+          <text class='input-name'>工作年限</text>
+          <view class='yearSelect'>
+            <text wx:for='{{config.workyearArr}}' class='{{item.checked==true?"checked":""}}' bindtap='clickedBox' data-itemid='{{index}}' data-arr="workyearArr">{{item.name}}</text>
+          </view>
+          <input value='{{workyear}}' hidden name='workyear'></input>
+        </view>
+
+        <!-- 从事行业-->
+        <view class='input-box'>
+          <text class='input-name'>所从事的行业</text>
+          <image src='../../images/icon-bottom-arrow2.png'></image>
+          <picker bindchange="bindWorkChange" range="{{config.worktypeArr}}" name='worktype' value='{{index}}' data-name='worktype'>
+            <view class="picker">
+              {{config.worktype}}
+            </view>
+            <view class="picker pickerPlaceholder {{config.worktype?'isshow':''}}">{{workPlaceholder}}</view>
+          </picker>
+        </view>
+        <!-- 是否在职-->
+        <view class='input-box'>
+          <text class='input-name'>是否在职</text>
+          <radio-group class="radio-group" bindchange="isWorkChange" name='iswork'>
+            <label class="radio" wx:for="{{config.isWorkArr}}">{{item.name}}
+              <radio value="{{item.name}}" checked="{{item.checked}}" color='{{chechedColor}}' size="10" />{{item.value}}
+            </label>
+          </radio-group>
+        </view>
+
+        <!-- 月收入区间-->
+        <view class='input-box'>
+          <text class='input-name'>选择月收入区间</text>
+          <view class='yearSelect'>
+            <text wx:for='{{config.salaryArr}}' class='{{item.checked==true?"checked":""}}' bindtap='clickedBox' data-itemid='{{index}}' data-arr="salaryArr">{{item.name}}</text>
+          </view>
+          <input value='{{config.salary}}' hidden name='salary'></input>
+        </view>
+      </view>
+      <view class='button-box'>
+        <button class='return-btn' bindtap='gotonextTable'  disabled='{{!config.age||!config.sex||!config.address||!config.workyear||!config.worktype||!config.iswork||!config.salary}}'>下一步</button>
+      </view>
+
+  </view>
+</block>
+<!---------------------房产table------------------>
+<block wx:if="{{pageindex==1}}">
 <view class="pe-container">
   <view class='pe-top'>
-    <image src='../../images/per-cp-img.png'></image>
+    <image src='../../images/cp-img.png'></image>
   </view>
-  <form bindsubmit='formSubmit'>
-    <view class='pe-table1'>
-      <view class='input-box'>
-        <text class='input-name'>年龄</text>
-        <input type='number' placeholder='必填' bindinput='bindNumberInput' name='age' value='{{initAge}}'></input>
-      </view>
-      <!-- 男女-->
-      <view class='input-box'>
-        <text class='input-name'>性别</text>
-        <radio-group class="radio-group" bindchange="radioSexChange" name='sex'>
-          <label class="radio" wx:for="{{sexArr}}">{{item.name}}
-            <radio value="{{item.name}}" checked="{{item.checked}}" color='{{chechedColor}}' />{{item.value}}
-          </label>
-        </radio-group>
-      </view>
-      <!-- 选择户口所在地 -->
-      <view class='input-box'>
-        <text class='input-name'>户口所在地</text>
-        <image src='../../images/icon-bottom-arrow2.png'></image>
-        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" name='address'>
-          <view class="picker">
-            {{region[0]}} {{region[1]}} {{region[2]}}
-          </view>
-          <view class="picker pickerPlaceholder {{region[0]?'isshow':''}}">{{addressPlaceholder}}</view>
-        </picker>
-      </view>
-      <!-- 工作年限 -->
-      <view class='input-box'>
-        <text class='input-name'>工作年限</text>
-        <view class='yearSelect'>
-          <text wx:for='{{workyearArr}}' class='{{item.checked==true?"checked":""}}' bindtap='clickedBox' data-itemid='{{index}}' data-arr="workyearArr">{{item.name}}</text>
-        </view>
-        <input value='{{workyear}}' hidden name='workyear'></input>
-      </view>
 
-      <!-- 从事行业-->
+  <view class='pe-table1'>
+ <!-- 选择抵押物所在地 -->
+     <view class='input-box'>
+     <text class='input-name'>区域</text>
+           <image src='../../images/icon-bottom-arrow2.png'></image>
+    <picker mode="region" bindchange="bindRegionChange" data-name='houseaddress'  custom-item="{{customItem}}" name='houseAddress'>
+    <view class="picker">
+      {{config.houseaddress[0]}} {{config.houseaddress[1]}} {{config.houseaddress[2]}}
+    </view>
+    <view class="picker pickerPlaceholder {{config.houseaddress[0]?'isshow':''}}">{{addressPlaceholder}}</view>
+  </picker>
+    </view>
       <view class='input-box'>
-        <text class='input-name'>所从事的行业</text>
-        <image src='../../images/icon-bottom-arrow2.png'></image>
-        <picker bindchange="bindWorkChange" value="{{workindex}}" range="{{workArr}}" name='worktype'>
-          <view class="picker">
-            {{workArr[workindex]}}
-          </view>
-          <view class="picker pickerPlaceholder {{workindex?'isshow':''}}">{{workPlaceholder}}</view>
-        </picker>
-      </view>
-      <!-- 是否在职-->
-      <view class='input-box'>
-        <text class='input-name'>是否在职</text>
-        <radio-group class="radio-group" bindchange="isWorkChange" name='iswork'>
-          <label class="radio" wx:for="{{isWorkArr}}">{{item.name}}
-            <radio value="{{item.name}}" checked="{{item.checked}}" color='{{chechedColor}}' size="10" />{{item.value}}
-          </label>
-        </radio-group>
-      </view>
-
-      <!-- 月收入区间-->
-      <view class='input-box'>
-        <text class='input-name'>选择月收入区间</text>
-        <view class='yearSelect'>
-          <text wx:for='{{salaryArr}}' class='{{item.checked==true?"checked":""}}' bindtap='clickedBox' data-itemid='{{index}}' data-arr="salaryArr">{{item.name}}</text>
-        </view>
-        <input value='{{salary}}' hidden name='salary'></input>
-      </view>
+      <text class='input-name'>抵押物所在小区</text>
+      <input type='text' placeholder='请输入' bindinput='bindtextinput' name='houseSqure' value='{{config.houseSqure}}' placeholder-class='placeholdername' data-name='houseSqure' data-type='search'></input>
+<view class="section">
+</view>
+    </view>
+        <view class='input-box'>
+        <text class='input-name'>楼栋及门牌号</text>
+    <input type='text' placeholder='请输入' bindinput='bindtextinput' name='houseNumber' value='{{config.houseNumber}}'placeholder-class='placeholdername' data-name='houseNumber'></input>
     </view>
 
-    <button class='return-btn' form-type='submit'>下一步</button>
+    <view class='input-box'>
+    <text class='input-name'>房产证号</text>
+      <input type='number' placeholder='请输入' bindinput='bindtextinput' name='houseCode' value='{{config.houseCode}}'placeholder-class='placeholdername' data-name='houseCode'></input>
+       <icon type="cancel" size="20" color='#ccc'/>
+    </view>
+  
+    <view class='input-box'>
+    <text class='input-name'>房产面积（平米）</text>
+    <input type='text' placeholder='请输入' bindinput='bindtextinput' name='houseArea' value='{{config.houseArea}}' placeholder-class='placeholdername' data-name='houseArea'></input>
+    </view>
+
+    <view class='input-box'>
+    <text class='input-name'>总楼层</text>
+    <input type='text' placeholder='请输入' bindinput='bindtextinput' name='houseFloor' value='{{config.houseFloor}}' placeholder-class='placeholdername' data-name='houseFloor'></input>
+    </view>
+
+<view class='input-box'>
+<text class='input-name'>所在楼层</text>
+    <input type='text' placeholder='请输入' bindinput='bindtextinput' name='houseTotleFloor' value='{{config.houseTotleFloor}}' placeholder-class='placeholdername' data-name='houseTotleFloor'></input>
+    </view>
+      <!-- 朝向-->
+    <view class='input-box'>
+    <text class='input-name'>朝向</text>
+        <view class='yearSelect'>
+          <text wx:for='{{config.houseDirectionArr}}'  wx:key='' class='{{item.checked==true?"checked":""}}' bindtap='clickedBox' data-itemid='{{index}}' data-arr="houseDirectionArr">{{item.name}}</text>
+        </view>
+        
+        <input value='{{houseDirection}}' hidden name='houseDirection'></input>
+        
+    </view>
+
+    <!-- 户型-->
+    <view class='input-box'>
+    <text class='input-name'>户型</text>
+    <view class='yearSelect'>
+          <text wx:for='{{config.houseTypeArr}}' wx:key='' class='{{item.checked==true?"checked":""}}' bindtap='clickedBox' data-itemid='{{index}}' data-arr="houseTypeArr">{{item.name}}</text>
+        </view>
+        <input value='{{houseType}}' hidden name='houseType'></input>
+    </view>
+      </view>
+      <view class='button-box'>
+        <button class='return-btn'  bindtap='gotonextTable2'  disabled='{{!config.houseaddress||!config.houseSqure||!config.houseNumber||!config.houseCode||!config.houseArea||!config.houseFloor||!config.houseTotleFloor||!config.houseDirection||!config.houseType}}'>下一步</button>
+        </view>
+
+</view>
+
+</block>
+<!---------------------------选择table 第三个------------------------------------->
+<block wx:if="{{pageindex==2}}">
+<view class="pe-container">
+  <view class='pe-top'>
+    <image src='../../images/cp-zx-img.png'></image>
+  </view>
+  <!--单选-->
+  <form  class='person-form'>
+    <view class='zx-choice1' wx:for="{{config.item}}">
+      <block wx:if="{{item.radio == 1}}">
+        <text class='text-title'>{{item.question}}</text>
+        <radio-group class="radio-group" bindchange="radioChange" name="{{item.fullname}}" data-id="{{item}}">
+          <view class='choice-box' wx:for="{{item.content}}">
+            <label for='{{item.value}}'>{{item.question}}</label>
+            <radio class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}" data-id='{{item}}'>
+              <!-- <text>{{item.value}}</text> -->
+            </radio>
+            <block wx:if='{{item.checked}}'>
+            <image src='../../images/personaltexticon.png' class='success'></image>
+            </block>
+            <block wx:else>
+            <text class='circeltext'></text>
+            </block>
+          </view>
+        </radio-group>
+      </block>
+      <!-- 多选 -->
+      <block wx:elif="{{item.radio == 0}}">
+        <text class='text-title'>{{item.question}}</text>
+        <checkbox-group class="radio-group" bindchange="checkboxChange" name="{{item.fullname}}" data-id='{{item}}'>
+          <view class='choice-box' wx:for="{{item.content}}">
+            <label for='{{item.value}}' data-id='{{item}}'>{{item.question}}</label>
+            <checkbox class="radio" wx:key="name"  value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}" data-id='{{item}}'>
+              <!-- <text>{{item.value}}</text> -->  
+            </checkbox>
+            <block wx:if='{{item.checked}}'>
+            <image src='../../images/personaltexticon2.png' class='success'></image>
+            </block>
+            <block wx:else>
+            <text class='circeltext'></text>
+            </block>
+          </view>
+        </checkbox-group>
+      </block>
+      <!-- 只有一个选项 -->
+      <block wx:else>
+        <view class='strongLabel'>
+          <checkbox-group class="radio-group" bindchange="checkboxChange" name="{{item.fullname}}" data-id='{{item}}'>
+            <view class='choice-box' wx:for="{{item.content}}">
+              <label for='{{item.value}}'>{{item.question}}</label>
+              <checkbox class="radio" wx:key="name" value="{{item.name}}" id='{{item.value}}' checked="{{item.checked}}"  data-id='{{item}}'>
+                <!-- <text>{{item.value}}</text> -->
+              </checkbox>
+                <block wx:if='{{item.checked}}'>
+             <image src='../../images/personaltexticon2.png' class='success'></image>
+            </block>
+            <block wx:else>
+            <text class='circeltext'></text>
+            </block>
+            </view>
+          </checkbox-group>
+        </view>
+      </block>
+    </view>
+    <view class='button-box'>
+    <button class='return-btn' style="background-color:#3f9cfa;opacity:.4;color:#fff" disabled='{{1}}'>提交</button>
+    </view>
   </form>
+</view>
+</block>
+
+
+<lightbox class='index-lightbox {{successBox==true?"lightboxshow":"lightboxhide"}}'>
+  <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+  <view class='slot-con'>
+    <image src='../../images/successicon.png'></image>
+    <text>操作成功</text>
+  </view>
+</lightbox>
+
+
+<lightbox class='index-lightbox {{wrongBox==true?"lightboxshow":"lightboxhide"}}' pro-data='{{wrongBox}}' bind:myevent='closelightbox'>
+  <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+  <view class='slot-con'>
+    <image src='../../images/wrongicon.png'></image>
+    <text>操作失败</text>
+    <view class='subTips'>
+      <image src='../../images/errortips.png'></image>{{wrongText}}</view>
+  </view>
+</lightbox>
+
+
+
+<view class='showsearchdata-bg' wx:if='{{config.isAddresslistshow}}'></view>
+<view class='showsearchdata-box' wx:if='{{config.isAddresslistshow}}'>
+  <view class='data-title' bindtap='closeAddressList'>关闭</view>
+  <view class='searchbox-data-box'>
+  <view class='searchbox-data' wx:for='{{config.searchData}}' bindtap='addaddress' data-address='{{item.name}}'>
+    {{item.name}}
+  </view>
+  </view>
 </view>

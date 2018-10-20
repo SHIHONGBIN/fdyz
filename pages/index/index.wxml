@@ -1,107 +1,37 @@
-<view class='home-page'>
-
-  <view class='top'>
-    <view class='container-fluid'>
-      <view class='col-xs-6 city-option'>
-        <navigator>
-          <image class='images-address' src='../../images/icon-address.jpg'></image>
-          <text>武汉</text>
-        </navigator>
-      </view>
-      <view class='col-xs-6 text-right'>
-        <navigator>
-          <image class='images-address' src='../../images/icon-user.png'></image>
-        </navigator>
-      </view>
+<view class="index-container">
+  <view class='ic-t-con'>
+  <image src='../../images/indexkf.png'></image>
+    <view class='addressbox'>
+      <image src='../../images/indexaddress.png'></image>
+      <text>武汉</text>
+      <image src='../../images/indexicon1.png'></image>
     </view>
   </view>
-
-
-  <view class='banner'>
-    <swiper class='swiper-box' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}">
+  <view class='ic-banner'>
+    <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color='{{indicaorColor}}' indicator-active-color='{{curindicaorColor}}'>
+      <block wx:for="{{imgUrls}}" wx:key="">
         <swiper-item>
-          <image src="{{item}}" class="slide-image" />
+          <image src="{{item}}" class="slide-image" width="355" height="150"/>
         </swiper-item>
       </block>
     </swiper>
   </view>
-
-
-  <view class='pro-services'>
-    <view class='container-fluid'>
-      <view class='pro-title'>
-        <text class='border-line'></text>专业服务</view>
-      <view class='row pro-services-list'>
-        <view class='col-xs-4 text-center'>
-          <navigator url="../personalEvaluation/personalEvaluation?title=业务测评" >
-            <image src='../../images/icon-ywps.png'></image>
-            业务测评
-          </navigator>
-        </view>
-        <view class='col-xs-4 text-center  col-4'>
-          <navigator>
-            <image src='../../images/icon-xycx.png'></image>
-            信用查询
-          </navigator>
-        </view>
-      </view>
+  <view class='ic-content'>
+    <view class='ic-h4-title'>
+      专业服务
     </view>
-  </view>
-
-
-  <view class='pro-services'>
-    <view class='container-fluid'>
-      <view class='pro-title'>
-        <text class='border-line'></text>配套服务</view>
-      <view class='row pro-services-list'>
-        <view class='col-xs-4 text-center'>
-          <navigator>
-            <image src='../../images/icon-fcpg.png'></image>
-            房产评估
-          </navigator>
-        </view>
-        <view class='col-xs-4 text-center  col-4'>
-          <navigator url="../propertyRightAgency/propertyRightAgency?title=权证代办">
-            <image src='../../images/icon-qzdb.png'></image>
-            权证代办
-          </navigator>
-        </view>
-        <view class='col-xs-4 text-center'>
-          <navigator url='../dueDiligence/dueDiligence?title=尽职调查'>
-            <image src='../../images/icon-jzdc.png'></image>
-            尽职调查
-          </navigator>
-        </view>
+    <block wx:for='{{indexListArray}}' wx:key="">
+    <view class='ic-con-list' bindtap='navigationfn' data-url='{{item.navigateUrl}}' data-title='{{item.title}}'>
+    <image src='{{item.image}}'></image>
+    <view class='ic-list-text'>
+      <view class='h5'>
+        {{item.title}}
       </view>
+      <text>{{item.subTitle}}</text>
     </view>
-  </view>
-
-  <view class='pro-services info-list'>
-    <view class='container-fluid'>
-      <view class='pro-title'>
-        <text class='border-line'></text>资讯列表
-      </view>
-      <view class='mui-table-view'>
-      <block wx:for='{{newsList}}'>
-        <navigator class='mui-table-view-cell'>
-          <view class='info-title'>{{item.title}}</view>
-          <view class='time'>{{item.date}}</view>
-        </navigator>
-        </block>
-        <view class='view-box' wx:if='{{isShowLoading}}'>
-                <image src='../../images/loading.gif' class='loadingpic'></image>
-                正在加载更多    
-        </view>
-        <view class='nodata' wx:if='{{isHaveData}}'>------没有更多数据-----</view>
-      </view>
+    <text>></text>
     </view>
+    </block>
   </view>
-
-
- 
 </view>
-  <!-- <my-component class='footerNav'>
-    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
-     <!-- <view>这里是插入到组件slot中的内容</view>  -->
-  <!-- </my-component> -->

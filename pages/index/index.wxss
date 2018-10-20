@@ -1,6 +1,22 @@
 /**index.wxss**/
 page{padding-bottom: 100rpx;}
-.footerNav{position:fixed; height: 85rpx; left: 0; bottom: 0; width: 100%; background-color: #fff; border-top:solid 1rpx #f4f4f4; padding-top: 15rpx}
-.view-box{ text-align: center; height: 70rpx; line-height: 70rpx; font-size: 24rpx; color:#999999; padding: 10rpx 0}
-.loadingpic{ width: 70rpx; height: 70rpx; vertical-align: middle; display: inline-block;}
-.nodata{color:#999999; font-size: 24rpx; text-align: center; padding: 15rpx; }
+.index-container{ background-color: #f9f9f9; display: flex; flex-direction: column;}
+.index-container{ padding: 0 35rpx;}
+.ic-t-con{ height: 99rpx; padding-top: 16rpx;}
+.ic-t-con .addressbox{width: 170rpx; height: 60rpx; line-height: 60rpx; text-align: center;border-radius: 30rpx; background-color: #fff; font-size: 26rpx; vertical-align: middle}
+.ic-t-con .addressbox image,.ic-t-con .addressbox text{ display: inline-block ;vertical-align: middle; margin: 0 8rpx;}
+.ic-t-con .addressbox image:first-child{ width: 22rpx; height: 28rpx; }
+.ic-t-con .addressbox image:last-child{ width: 14rpx; height: 7rpx; }
+.ic-t-con>image{ float: right; width: 38rpx; height: 38rpx; margin-top: 19rpx;}
+.ic-banner{ width: 100%; height: 272rpx;}
+.ic-banner swiper{ height: 272rpx; border-radius: 10rpx;overflow: hidden}
+.ic-banner image{ width: 100%; height: 272rpx;}
+.ic-content{ padding-top: 46rpx;}
+.ic-content .ic-h4-title{ font-size: 36rpx; font-weight:600}
+.ic-con-list{width: 100%; height: 168rpx; border-radius: 10rpx; background-color: #fff;  box-shadow: 2px 2px 20px rgba(0,0,0,.1); margin-top: 30rpx;  font-size: 0}
+.ic-con-list image,.ic-con-list>text,.ic-con-list .ic-list-text{ float: left}
+.ic-con-list image{width: 64rpx; height: 68rpx;margin-left: 50rpx; margin-top: 55rpx;}
+.ic-con-list .h5{ font-size:32rpx; font-weight: 600;margin-bottom: 10rpx}
+.ic-con-list .ic-list-text{ margin-left: 40rpx; margin-top: 46rpx; max-width: 460rpx; overflow: hidden; text-overflow:ellipsis; white-space:nowrap}
+.ic-con-list .ic-list-text  text{ color:#9fa3b5; font-size: 22rpx; }
+.ic-con-list>text{ float: right; font-size: 40rpx; color:#eeedee; margin-top: 60rpx; margin-right: 20rpx;}

@@ -1,0 +1,5 @@
+<!--pages/lightbox/provimg.wxml-->
+<view class='lightboxSucc lightboxProving'>
+  <image src='../../images/proving.png'></image>
+  <text>认证中，等待后台审核…</text>  
+</view>

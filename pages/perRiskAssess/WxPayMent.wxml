@@ -1,33 +1,27 @@
-<view class='wx-payment'>
-  <view class='bac-white'>
-    <view class='container-fluid'>
-      <view class='payment-title'>请选择生成版本</view>
-      <view class='amount-selected'>
-        <view class="{{money == 50?'view-li-current':'view-li'}}" data-money="50" bindtap="clickNum">
-          <view class='amount'>
-            <text class='font-weight'>50</text>
-            <text class='none-copy'>元/份</text>
-          </view>
-          完整版
+<view class="pe-container pe-container-text pe-container-test3">
+  <view class='p-c-title'>请选择生成版本</view>
+  <form bindsubmit='formSubmit'>
+    <view class='amount-selected pe-table1'>
+      <view class="{{money == 50?'view-li-current':'view-li'}}" data-money="50" bindtap="clickNum">
+        <view class='amount'>
+          <text class='font-weight'>50</text>
+          <text class='none-copy'>元/份</text>
         </view>
-        <view class="{{money == 10?'view-li-current':'view-li'}}" data-money="10" bindtap="clickNum">
-          <view class='amount'>
-            <text class='font-weight'>10</text>
-            <text class='none-copy'>元/份</text>
-          </view>
-          精简版本
-        </view>
+        完整版
       </view>
-      <view class='need-pay'>需支付
-        <text>{{money}}</text>元</view>
+      <view class="{{money == 10?'view-li-current':'view-li'}}" data-money="10" bindtap="clickNum">
+        <view class='amount'>
+          <text class='font-weight'>10</text>
+          <text class='none-copy'>元/份</text>
+        </view>
+        精简版本
+      </view>
+      <view class='need-pay'>需要支付
+      <text>{{money}} </text>元</view>
+      <input hidden value='{{money}}' name='value'></input>
     </view>
-  </view>
-
-  <view class='container-fluid'>
-    <button form-type='submit' class='btn-next' form-type='submit'>微信支付</button>
-  </view>
 
 
- 
-
+<button form-type='submit' class='return-btn' form-type='submit'>微信支付</button>
+</form>
 </view>

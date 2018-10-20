@@ -1,0 +1,72 @@
+<!--pages/order/index.wxml-->
+<view class='order-box'>
+  <!-- 切换 -->
+  <view class='o-title'>
+    <view class='o-title-con {{orderConfig.iscur[0].cur?"cur":""}}' bindtap='changeCur' data-id='{{orderConfig.iscur[0].id}}'>
+      房抵贷测评
+      <text></text>
+    </view>
+    <view class='o-title-con {{orderConfig.iscur[1].cur?"cur":""}}' bindtap='changeCur' data-id='{{orderConfig.iscur[1].id}}'>
+      风险测评
+      <text></text>
+    </view>
+  </view>
+  <!-- 切换 -->
+  <!-- 搜索 -->
+  <view class='search-box'>
+    <view class='search-text' bindtap='showSearchDetail'>筛选</view>
+    <view class='search-icon1'>
+      <image src='../../images/indexicon1.png'></image>
+    </view>
+    <view class='search-line'></view>
+    <view class='search-icon2'>
+      <image src='../../images/searchicon2.png'></image>
+    </view>
+    <view class='search-input'>
+      <input type='text' placeholder='请搜索订单编号/姓名' placeholder-class='placeholderClass'></input>
+    </view>
+  </view>
+    <!-- 筛选详细信息 -->
+   <view class='searchlist {{orderConfig.isclicksearch.option1?"clickedSearch":""}}'>
+    <view class='s-l-c cur'>全部</view>
+    <view class='s-l-c'>待处理</view>
+    <view class='s-l-c'>已处理</view>
+  </view>
+ <view class='searchlistbg {{orderConfig.isclicksearch.option1?"clickedSearch":""}}' data-top='169'></view>
+  <!-- 搜索 -->
+  <!-- orderlist -->
+  <view class='orderlist'>
+  <!-- 房抵贷列表 -->
+    <block wx:if='{{orderConfig.iscur[0].cur}}'>
+      <view class='order-con' wx:for='{{orderConfig.orderlist}}' wx:key=''>
+        <view class='order-title'>
+          <view class='o-number'>订单编号：{{item.order}}</view>
+          <view class='o-report'>测评报告 ></view>
+        </view>
+        <view class='o-list-con'>测评人：{{item.name}}</view>
+        <view class='o-list-con'>申请时间：{{item.time}}</view>
+        <view class='o-list-con'>贷款期数：{{item.howlong}}期</view>
+        <view class='o-list-con'>测评金额：{{item.money}}万元</view>
+        <view class='o-active-box'>
+          <view class='edit-report apply'>申请订单</view>
+          <view class='edit-report'>发送邮箱</view>
+          <view class='edit-report'>修改报告</view>
+        </view>
+      </view>
+    </block>
+    <!-- 风险测评 -->
+    <block wx:if='{{orderConfig.iscur[1].cur}}'>
+      <view class='p-order-con order-con' wx:for='{{orderConfig.orderlist2}}' wx:key=''>
+        <view class='order-title'>
+          <view class='o-number'>{{item.name}}个人风险报告</view>
+          <view class='o-report'>{{item.status}}</view>
+        </view>
+        <view class='o-list-con'>测评人：{{item.applytime}}</view>
+        <view class='o-list-con'>申请时间：{{item.lasttime}}</view>
+        <view class='o-active-box'>
+          <view class='edit-report apply'>查看</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

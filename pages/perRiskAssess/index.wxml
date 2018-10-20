@@ -1,59 +1,100 @@
-<view class='per-risk-assess'>
-  <view class='bac-white'>
-    <view class="container-fluid">
-      <view class='query-title'>被查询人信息</view>
-      <view class='mui-table-view'>
-        <view class='mui-table-view-cell'>
-          <text>姓名</text>
-          <input type='text' placeholder="必填" auto-focus/>
-        </view>
-        <view class='mui-table-view-cell'>
-          <text>手机号</text>
-          <input type='number' placeholder="必填" auto-focus/>
-          <view class='phone-trips'>
-            <image class='images-trips' src='/images/newFD/icon-trips.png'></image>
-            您输入的手机号不是11位数
-          </view>
-        </view>
-        <view class='mui-table-view-cell'>
-          <text>身份证号码</text>
-          <input type='idcard' placeholder="必填" auto-focus/>
-          <view class='phone-trips'>
-            <image class='images-trips' src='/images/newFD/icon-trips.png'></image>
-            您的身份证号为空
-          </view>
-        </view>
-        <view class='mui-table-view-cell'>
-          <text>银行卡卡号1</text>
-          <input type='number' placeholder="必填" auto-focus/>
-        </view>
-        <view class='mui-table-view-cell'>
-          <text>银行卡卡号2</text>
-          <input type='number' placeholder="必填" auto-focus/>
-        </view>
-        <view class='mui-table-view-cell'>
-          <text>银行卡卡号3</text>
-          <input type='number' placeholder="必填" auto-focus/>
-        </view>
-        <view class='mui-table-view-cell'>
-          <text>常用邮箱</text>
-          <input type='number' placeholder="必填" auto-focus/>
-        </view>
-        <view class='mui-table-view-cell'>
-          <text>座机号码</text>
-          <input type='number' placeholder="必填" auto-focus/>
-        </view>
-        <view class='mui-table-view-cell'>
-          <text>办公号码</text>
-          <input type='number' placeholder="必填" auto-focus/>
+<view class="pe-container pe-container-text">
+<view class='p-c-title'>被查询人信息</view>
+  <form bindsubmit='formSubmit'>
+    <view class='pe-table1'>
+      <view class='input-box'>
+        <text class='input-name'>姓名</text>
+        <input type='text' placeholder='必填' bindinput='bindNumberInput' name='name' value='{{initName}}' bindblur='blurtest' placeholder-class='placeholderInput' data-name='name'></input>
+        <view class='errorMsg {{nameMsg==""?"hide":"show"}}'>
+          <image src='../../images/errortips.png'></image>
+          <text>{{nameMsg}}</text>
         </view>
       </view>
-    </view>
-  </view>
-
-
-  <view class='container-fluid'>
-    <button class='btn-next' form-type='submit'>下一步</button>
-  </view>
-
+      <!-- 男女-->
+     <view class='input-box'>
+        <text class='input-name'>手机号</text>
+        <input type='number' placeholder='必填' bindinput='bindNumberInput' name='phone' value='{{initPhone}}' placeholder-class='placeholderInput' bindblur='blurtest'  data-name='phone'></input>
+         <view class='errorMsg {{phoneMsg==""?"hide":"show"}}'>
+          <image src='../../images/errortips.png'></image>
+          <text>{{phoneMsg}}</text>
+        </view>
+      </view>
+        <view class='input-box'>
+        <text class='input-name'>身份证</text>
+        <input type='number' placeholder='必填' bindinput='bindNumberInput' name='cardid' value='{{initCardid}}' placeholder-class='placeholderInput'  bindblur='blurtest'  data-name='cardid'></input>
+         <view class='errorMsg {{idMsg==""?"hide":"show"}}'>
+          <image src='../../images/errortips.png'></image>
+          <text>{{idMsg}}</text>
+        </view>
+      </view>
+      <view class='input-box'>
+        <text class='input-name'>银行卡号1</text>
+        <input type='number' placeholder='必填' bindinput='bindNumberInput' name='card1' value='{{initCard1}}' placeholder-class='placeholderInput'  bindblur='blurtest'  data-name='card1'></input>
+         <view class='errorMsg {{card1Msg==""?"hide":"show"}}'>
+          <image src='../../images/errortips.png'></image>
+          <text>{{card1Msg}}</text>
+        </view>
+      </view>
+       <view class='input-box'>
+        <text class='input-name'>银行卡号2</text>
+        <input type='number' placeholder='必填' bindinput='bindNumberInput' name='card2' value='{{initCard2}}' placeholder-class='placeholderInput'></input>
+          <!-- <view class='errorMsg'>
+          <image src='../../images/errortips.png'></image>
+          <text>{{card2Msg}}</text>
+        </view> -->
+      </view>
+       <view class='input-box'>
+        <text class='input-name'>银行卡号3</text>
+        <input type='number' placeholder='选填' bindinput='bindNumberInput' name='card3' value='{{initCard3}}' placeholder-class='placeholderInput'></input>
+          <!-- <view class='errorMsg'>
+          <image src='../../images/errortips.png'></image>
+          <text>{{card3Msg}}</text>
+        </view> -->
+      </view>
+       <view class='input-box'>
+        <text class='input-name'>常用邮箱</text>
+        <input type='text' placeholder='选填' bindinput='bindNumberInput' name='email' value='{{initEmail}}' placeholder-class='placeholderInput'></input>
+          <!-- <view class='errorMsg'>
+          <image src='../../images/errortips.png'></image>
+          <text>{{cardMsg}}</text>
+        </view> -->
+      </view>
+       <view class='input-box'>
+        <text class='input-name'>座机号码</text>
+        <input type='number' placeholder='选填' bindinput='bindNumberInput' name='phoneZJ' value='{{initPhoneZJ}}' placeholder-class='placeholderInput'></input>
+          <!-- <view class='errorMsg'>
+          <image src='../../images/errortips.png'></image>
+          <text>{{cardMsg}}</text>
+        </view> -->
+      </view>
+       <view class='input-box'>
+        <text class='input-name'>办公号码</text>
+        <input type='number' placeholder='选填' bindinput='bindNumberInput' name='phoneBG' value='{{initPhoneBG}}' placeholder-class='placeholderInput'></input>
+          <!-- <view class='errorMsg'>
+          <image src='../../images/errortips.png'></image>
+          <text>{{cardMsg}}</text>
+        </view> -->
+      </view>
 </view>
+    <button class='return-btn' form-type='submit' disabled='{{isdiabled}}'>下一步</button>
+  </form>
+</view>
+
+
+<lightbox class='index-lightbox {{successBox==true?"lightboxshow":"lightboxhide"}}' >
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <view class='slot-con'>
+        <image src='../../images/successicon.png'></image>
+        <text>操作成功</text>
+     </view>
+</lightbox>
+
+
+<lightbox class='index-lightbox {{wrongBox==true?"lightboxshow":"lightboxhide"}}' pro-data='{{wrongBox}}' bind:myevent='closelightbox'>
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <view class='slot-con'>
+        <image src='../../images/wrongicon.png'></image>
+        <text>操作失败</text>
+        <view class='subTips'><image src='../../images/errortips.png'></image>{{wrongText}}</view>
+     </view>
+</lightbox>

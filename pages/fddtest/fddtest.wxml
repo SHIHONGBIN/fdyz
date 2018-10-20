@@ -1,0 +1,119 @@
+<!--pages/fddtest/fddtest.wxml-->
+<block wx:if='{{pageIndex == 0}}'>
+<view class='fddtest-container'>
+  <view class='fc-top'>
+    <view class='fc-title'>
+      <view class='colorsqure'></view>
+      <text class='fc-h4'>功能介绍</text>
+      <image src='../../images/geayicon.png'></image>
+      <text class='sub-title'>费用：活动期间免费</text>  
+    </view>
+    <view class='fc-title-con'>
+      录入简单的个人、房产、征信信息，即可实时生成一份完整的房贷额度评测报告，作为申贷或风控的依据。
+    </view>
+    <view class='fc-title2'>三步生成快速报告</view>
+    <view class='step-box'>
+      <text class='number'>1</text>
+      <text class='t-con'>提交需求生成订单</text>
+      <text>></text>  
+      <text class='number'>2</text>
+      <text class='t-con'>填写信息</text>
+      <text>></text>
+      <text class='number'>3</text>
+      <text class='t-con'>生成报告</text>
+      <text>></text>
+      <text class='number'>4</text>
+      <text class='t-con'>申请贷款</text>  
+    </view>
+  </view>
+
+  <form  bindsubmit='formSubmit'>
+  <view class='fc-form pe-table1'>
+  <!-- 姓名 -->
+     <view class='input-box'>
+        <text class='input-name'>姓名</text>
+        <input type='text' placeholder='必填' bindinput='bindtextinput'  value='{{config.name}}' data-name='name' name='name'></input>
+        </view>
+         <!-- 身份证 -->
+     <view class='input-box'>
+        <text class='input-name'>身份证</text>
+        <input type='number' placeholder='必填' bindinput='bindtextinput' name='cardID' value='{{config.cardID}}' data-name='cardID'></input>
+      </view>
+          <!-- 贷款金额 -->
+     <view class='input-box'>
+        <text class='input-name'>贷款金额（万元）</text>
+        <input type='text' placeholder='必填' bindinput='bindtextinput' name='loanMoney' value='{{config.loanMoney}}' data-name='loanMoney'></input>
+      </view>
+<!-- 贷款期数 -->
+        <view class='input-box'>
+        <text class='input-name'>选择贷款期数</text>
+        <view class='yearSelect'>
+          <text wx:for='{{config.loanyearArr}}' class='{{item.checked==true?"checked":""}}' bindtap='clickedBox' data-itemid='{{index}}' data-arr="loanyearArr">{{item.name}}</text>
+        </view>
+        <input value='{{loanyear}}' hidden name='loanyear'></input>
+      </view>
+<!-- 专属经纪人 -->
+    <view class='input-box' bindtap='choiceJJR'>
+        <text class='input-name'>专属经纪人</text>
+        <block wx:if='{{config.jjrname}}'>
+          <view class='rightbtn'>{{config.jjrname}}</view>
+         </block>
+        <block wx:else>
+          <view class='rightbtn'>请选择 ></view>
+        </block>
+        <input hidden name='jjrName' value='{{config.jjrname}}'></input>
+      </view>
+  </view>
+       <button class='return-btn' form-type='submit' disabled='{{!config.cardID||!config.name || !config.loanMoney || !config.loanDate || !config.jjrname}}' >提交订单</button>
+       </form>
+</view>
+
+</block>
+
+<block wx:if="{{pageIndex == 1}}">
+  <view class='manageList-container'>
+  <view class='manage-box' wx:for='{{config.jjrArr}}' wx:key=''>
+    <view class='m-l-con' bindtap='ischecked' data-id='{{item.id}}'>
+      <block wx:if="{{item.ischecked}}">
+      <image  src='../../images/personaltexticon2.png'></image>
+      </block>
+      <block wx:else>
+        <text></text>
+      </block>
+    </view>
+    <view class='r-con'>
+    <view class='m-c-header'>
+      <image src='{{item.headerImage}}'></image>
+    </view>
+    <view class='m-c-msg'>
+      <view class='name'>{{item.name}} <image src='../../images/proved.png'></image></view>
+      <view class='c-name'>{{item.cName}}</view>
+    </view>
+    <view class='m-r-tel' bindtap='callJJR' data-tel='{{item.telNumber}}'>
+      <image src='../../images/tel.png'></image>
+    </view>
+    </view>
+  </view>
+</view>
+ <button class='return-btn' form-type='submit' disabled='{{!config.jjrname}}' bindtap='returnpage'>切换经纪人</button>
+</block>
+
+<lightbox class='index-lightbox {{successBox==true?"lightboxshow":"lightboxhide"}}' >
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <view class='slot-con'>
+        <image src='../../images/successicon.png'></image>
+        <text>操作成功</text>
+     </view>
+</lightbox>
+
+
+<lightbox class='index-lightbox {{wrongBox==true?"lightboxshow":"lightboxhide"}}' pro-data='{{wrongBox}}' bind:myevent='closelightbox'>
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <view class='slot-con'>
+        <image src='../../images/wrongicon.png'></image>
+        <text>操作失败</text>
+        <view class='subTips'><image src='../../images/errortips.png'></image>{{wrongText}}</view>
+     </view>
+</lightbox>
+
+

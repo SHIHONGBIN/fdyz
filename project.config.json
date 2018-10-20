@@ -32,26 +32,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 5,
 			"list": [
-				{
-					"id": 0,
-					"name": "personalEvaluation",
-					"pathName": "pages/personalEvaluation/personalEvaluation",
-					"query": "title=个人测评"
-				},
-				{
-					"id": -1,
-					"name": "personalEvaluation1",
-					"pathName": "pages/personalEvaluation1/personalEvaluation1",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "personalEvaluation2",
-					"pathName": "pages/personalEvaluation2/personalEvaluation2",
-					"query": ""
-				},
 				{
 					"id": -1,
 					"name": "login",
@@ -59,16 +41,33 @@
 					"query": ""
 				},
 				{
-					"id": 4,
-					"name": "dueDiligence",
-					"pathName": "pages/dueDiligence/dueDiligence",
-					"query": "title=尽职调查"
+					"id": -1,
+					"name": "personalEvaluation",
+					"pathName": "pages/personalEvaluation/personalEvaluation",
+					"query": "title=房抵贷测评"
 				},
 				{
-					"id": 5,
-					"name": "porpertyRightAgency",
-					"pathName": "pages/propertyRightAgency/propertyRightAgency",
-					"query": "title=权证代办"
+					"id": -1,
+					"name": "pages/fddtest/fddtest",
+					"pathName": "pages/fddtest/fddtest",
+					"query": "title=房抵贷测评"
+				},
+				{
+					"id": -1,
+					"name": "pages/perRiskAssess/intro",
+					"pathName": "pages/perRiskAssess/intro",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pages/perRiskAssess/smsAuth",
+					"pathName": "pages/perRiskAssess/smsAuth",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "order",
+					"pathName": "pages/order/index"
 				}
 			]
 		}

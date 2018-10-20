@@ -67,3 +67,24 @@
 
   </form>
 </view>
+
+
+
+
+<lightbox class='index-lightbox {{successBox==true?"lightboxshow":"lightboxhide"}}' >
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <view class='slot-con'>
+        <image src='../../images/successicon.png'></image>
+        <text>操作成功</text>
+     </view>
+</lightbox>
+
+
+<lightbox class='index-lightbox {{wrongBox==true?"lightboxshow":"lightboxhide"}}' pro-data='{{wrongBox}}' bind:myevent='closelightbox'>
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <view class='slot-con'>
+        <image src='../../images/wrongicon.png'></image>
+        <text>操作失败</text>
+        <view class='subTips'><image src='../../images/errortips.png'></image>{{wrongText}}</view>
+     </view>
+</lightbox>

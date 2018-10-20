@@ -1,94 +1,53 @@
 Page({
   data: {
-    newsList: [{
-      title: '房产税征收条例的具体内容有哪些房产税征',
-      date: '2018-5-15'
-    }, {
-        title: '房产税征收条例的具体内容有哪些房产税征',
-        date: '2018-5-17'
-      }, {
-        title: '房产税征收条例的具体内容有哪些房产税征',
-        date: '2018-5-18'
-      }],
-      //显示正在加载
-    isShowLoading:false,
-    //加载完成图否
-    isHaveData:false,
-
+    //swiper
     imgUrls: [
-      '../../images/banner-1.jpg',
-      '../../images/banner-1.jpg',
-      '../../images/banner-1.jpg',
+      '../../images/indexbanner.png',
+      '../../images/indexbanner.png',
+      '../../images/indexbanner.png'
     ],
     indicatorDots: true,
-    autoplay: false,
+    autoplay: true,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    indicaorColor:'#000',
+    curindicaorColor:'#fff',
+    //专业服务data
+    indexListArray: [{
+      id:0,
+      navigateUrl:'../fddtest/fddtest',
+      image: '../../images/indexcontentimg3.png',
+      title: '测一测你家房子能贷多少',
+      subTitle: '输入小区、户型、面积即可得到完整测评报告'
+    }, {
+      id:1,
+        navigateUrl: '',
+        image: '../../images/indexcontentimg2.png',
+        title: '查一查你的贷款指数',
+        subTitle: '十秒知道您能否通过贷款审批'
+      }, {
+        id:2,
+        navigateUrl: '../personalEvaluation/personalEvaluation',
+        image: '../../images/indexcontentimg1.png',
+        title: '一键查房价',
+        subTitle: '最新房价在线查，买房卖房都靠它'
+      }]
   },
   onLoad:function(){
-    wx.setTabBarBadge({
-      index:2,
-      text:'3'
-    })
+    //设置bar的变量 红点
+    // wx.setTabBarBadge({
+    //   index:2,
+    //   text:'3'
+    // })
   },
-  changeIndicatorDots: function (e) {
-    this.setData({
-      indicatorDots: !this.data.indicatorDots
+  //跳转事件
+  navigationfn:function(e){
+    //获取url
+    var url = e.currentTarget.dataset.url;
+    //获取跳转title页面名字
+    var title = e.currentTarget.dataset.title;
+    wx.navigateTo({
+      url: url + '?title=' + title,
     })
-  },
-  changeAutoplay: function (e) {
-    this.setData({
-      autoplay: !this.data.autoplay
-    })
-  },
-  intervalChange: function (e) {
-    this.setData({
-      interval: e.detail.value
-    })
-  },
-  durationChange: function (e) {
-    this.setData({
-      duration: e.detail.value
-    })
-  },
-  //上拉加载事件
-  onReachBottom(e){
-    var data = [{
-      title: '房产税征收条例的具体内容有哪些房产税征',
-      date: '2018-5-19'
-    }, {
-        title: '房产税征收条例的具体内容有哪些房产税征',
-        date: '2018-5-22'
-      }, {
-        title: '房产税征收条例的具体内容有哪些房产税征',
-        date: '2018-5-90'
-      }];
-    // var data = []
-    //延时2s接受数据
-    this.setData({
-      isShowLoading:true,
-      isHaveData: false
-    });
-    this.delatTime(2000, ()=>{
-      this.setData({
-        isShowLoading: false
-      })
-      var oldData = this.data.newsList;
-      if (data.length!=0){
-        this.setData({
-          newsList: [].concat(oldData, data)
-        })
-      }else{
-        this.setData({
-          isHaveData: true
-        })
-      }
-    })
-
-  },
-  delatTime(time,callback){
-    setTimeout(function(){
-      callback();
-    },1000)
   }
 })

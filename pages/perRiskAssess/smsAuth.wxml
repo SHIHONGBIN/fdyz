@@ -1,31 +1,38 @@
-<view class='per-risk-assess sms-auth'>
-  <view class='bac-white'>
-    <view class="container-fluid">
-      <view class='query-title'>请验证被查询人的短信授权码</view>
-      <view class='phone-auth'>授权短信将发送到被查询人手机号： 13800000000</view>
-      <view class='mui-table-view'>
-        <view class='mui-table-view-cell'>
-          <text>图形验证码</text>
-          <input class='graphic-code' type='number' placeholder="必填" auto-focus/>
-          <image class='image-code' src='/images/newFD/img-code.png'></image>
+<view class="pe-container pe-container-text pe-container-test2">
+  <view class='p-c-title'>请验证被查询人的短信授权码</view>
+  <view class='phone-auth'>授权短信将发送到被查询人手机号： {{searchTel}}</view>
+  <form bindsubmit='formSubmit'>
+    <view class='pe-table1'>
+      <view class='input-box'>
+        <text class='input-name'>图形验证码</text>
+        <input type='text' placeholder='必填' bindinput='bindNumberInput' name='txyzm' value='{{initName}}' placeholder-class='placeholderInput' data-name='txyzm' class='yzm-input' bindblur='blurtest'></input>
+        <image src='../../images/code-img.png' class='yzm'></image>
+        <view class='errorMsg {{txyzmMsg==""?"hide":"show"}}'>
+          <image src='../../images/errortips.png'></image>
+          <text>{{txyzmMsg}}</text>
+        </view> 
+      </view>
+      <view class='input-box'>
+        <text class='input-name'>短信授权码</text>
+        <input type='number' placeholder='必填' name='dxyzm' value='{{initName}}' data-name='dxyzm' placeholder-class='placeholderInput' bindblur='blurtest'></input>
+         <view class='yzm-box'>
+          <text bindtap='daojishiFn'>{{yzmTips}}</text>
         </view>
-        <view class='mui-table-view-cell'>
-          <text>短信授权码</text>
-          <input class='phone-code' type='number' placeholder="必填" auto-focus/>
-          <view class='yzm-box' bindtap='daojishiFn'>{{yzmTips}}</view>
-
+         <view class='errorMsg {{dxyzmMsg==""?"hide":"show"}}'>
+          <image src='../../images/errortips.png'></image>
+          <text>{{dxyzmMsg}}</text>
         </view>
-
       </view>
     </view>
-  </view>
 
-
-  <view class='container-fluid'>
-    <button form-type='submit' class='btn-next'  form-type='submit'>验证</button>
-  </view>
-
-
-
-
+    <button form-type='submit' class='return-btn' form-type='submit' disabled='{{isdiabled}}'>验证</button>
+    </form>
 </view>
+
+<lightbox class='index-lightbox {{successBox==true?"lightboxshow":"lightboxhide"}}' >
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <view class='slot-con'>
+        <image src='../../images/successicon.png'></image>
+        <text>操作成功</text>
+     </view>
+</lightbox>

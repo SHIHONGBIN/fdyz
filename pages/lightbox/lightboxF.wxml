@@ -1,0 +1,5 @@
+<!--pages/lightbox/lightboxfail.wxml-->
+<view class='lightboxSucc'>
+  <image src='../../images/lightboxfail.png'></image>
+  <text>提交失败</text>  
+</view>

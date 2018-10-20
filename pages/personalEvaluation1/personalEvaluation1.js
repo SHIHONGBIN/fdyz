@@ -180,77 +180,93 @@ Page({
   bindsubmit:function(e){
     const objVal = e.detail.value;
     //验证所有
-    console.log(objVal)
     for (var x in objVal) {
       if (objVal['houseAddress'].length == 0) {
-        wx.showToast({
-          title: '地址未选择',
-          icon: 'none'
-        });
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '区域未选择'
+        })
         return false
-      } else if (objVal['houseDirection']=='') {
-        wx.showToast({
-          title: '朝向未选择',
-          icon: 'none'
-        });
-        return false
-      } else if (objVal['houseType'] == '') {
-        wx.showToast({
-          title: '户型未选择',
-          icon: 'none'
-        });
-        return false
-      } else if (objVal['houseCode'] == '') {
-        wx.showToast({
-          title: '房产证号未选择',
-          icon: 'none'
-        });
-        return false
-      } else if (objVal['houseSqure'] == '') {
-        wx.showToast({
-          title: '抵押物所在小区未选择',
-          icon: 'none'
-        });
-        return false
-      } else if (objVal['houseArea'] == '') {
-        wx.showToast({
-          title: '房产面积未选择',
-          icon: 'none'
-        });
+      } else if (objVal['houseSqure']=='') {
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '抵押物所在小区未选择'
+        })
         return false
       } else if (objVal['houseNumber'] == '') {
-        wx.showToast({
-          title: '楼栋及门牌号未选择',
-          icon: 'none'
-        });
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '楼栋及门牌号未选择'
+        })
+        return false
+      } else if (objVal['houseCode'] == '') {
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '房产证号未选择'
+        })
+        return false
+      } else if (objVal['houseArea'] == '') {
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '房产面积未选择'
+        })
         return false
       } else if (objVal['houseFloor'] == '') {
-        wx.showToast({
-          title: '所在楼层未选择',
-          icon: 'none'
-        });
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '总楼层未选择'
+        })
         return false
       } else if (objVal['houseTotleFloor'] == '') {
-        wx.showToast({
-          title: '总楼层未选择',
-          icon: 'none'
-        });
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '所在楼层未选择'
+        })
+        return false
+      } else if (objVal['houseDirection'] == '') {
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '朝向未选择'
+        })
+        return false
+      } else if (objVal['houseType'] == '') {
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '户型未选择'
+        })
         return false
       }else {
         //提交数据表单
        
       }
     }
-    console.log(e.detail.value)
+   
     //更新缓存
     wx.setStorage({
       key: 'testtable2',
       data: objVal,
     });
+    //提交成功
+    this.setData({
+      successBox: true,
+    });
     //下一页
-    wx.navigateTo({
-      url: '../personalEvaluation2/personalEvaluation2',
-    })
+    setTimeout(function () {
+      //下一页
+      wx.navigateTo({
+        url: '../personalEvaluation2/personalEvaluation2',
+      })
+    }, 1000)
+
   },
   //选择朝向 户型
   //选择年份 月薪范围
@@ -274,5 +290,11 @@ Page({
     const hiddennameobj = {};
     hiddennameobj[hiddenname] = arr[curid].name;
     this.setData(hiddennameobj)
+  },
+  //接受子组件的事件 验证弹窗关闭
+  closelightbox: function (e) {
+    this.setData({
+      wrongBox: false
+    })
   }
 })

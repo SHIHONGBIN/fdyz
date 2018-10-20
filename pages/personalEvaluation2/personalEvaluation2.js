@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    wrongBox:false,
     //pickerview
     isClick: false,
     curindex:'',
@@ -202,24 +203,70 @@ Page({
   },
   //提交
   formSubmit: function(e){
+    //验证
+    //----------
+    const objVal = e.detail.value;
+    //验证所有
+    for (var x in objVal) {
+      if (objVal['name2'].length == 0) {
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '贷款及信用卡逾期记录未选择'
+        })
+        return false
+      } else if (objVal['name3'] == '') {
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '没有过执行记录未选择'
+        })
+        return false
+      } else if (objVal['name6'] == '') {
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '存在限行负债或多头民间借贷未选择'
+        })
+        return false
+      } else if (objVal['name7'] == '') {
+        //测试不通过
+        this.setData({
+          wrongBox: true,
+          wrongText: '离异/高龄单身未选择'
+        })
+        return false
+      }else{
+        //
+      }
+    }
     //获取当前表单的值
     const testtable3 = e.detail.value;
     //获取前两个表单的值
     const testtable1 = wx.getStorageSync('testtable1');
     const testtable2 = wx.getStorageSync('testtable2');
-   
-    //post提交
-    wx.showToast({
-      title: '提交成功',
+
+
+    //提交成功
+    this.setData({
+      successBox: true,
     });
-
-
-    //跳转页面
+    //下一页
     setTimeout(function () {
-      //跳转到tabbar页面
+      //下一页
       wx.navigateTo({
-        url: '../personalEvaluationResult/personalEvaluationResult',
+        url: '../index/index',
       });
-    }, 2000)
+      //清空storege
+      wx.clearStorageSync('testtable1,testtable2')
+    }, 1000)
+
+  },
+  //接受子组件的事件 验证弹窗关闭
+  closelightbox: function (e) {
+    this.setData({
+      wrongBox:false
+    })
+    
   }
 })

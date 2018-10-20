@@ -1,0 +1,83 @@
+<!--pages/perRiskAssess/intro.wxml-->
+<!-- 导入注册协议模板 -->
+<import src="../template/regprotocal.wxml"/>
+<view class="pe-container pe-container-intro">
+  <view class='p-c-intro-box'>
+    <view class='p-c-title'>产品介绍</view>
+    <view class='intro-con'>
+      为企业风控提供个人大数据征信综合报告（身份证、手机、银行卡实名认证，个人收支、消费、涉案涉诉、黑名单、不良记录等多维度数据）</view>
+    <view class='p-c-title'>收费说明</view>
+    <view class='sf-box'>
+      <view class='sf-con'>
+        <view class='sf-left'>简化版</view>
+        <view class='sf-right'>
+          <view class='r-t-text'>推广期优惠价</view>
+          <view class='r-m-text'>
+            10
+            <text>元/份</text>
+          </view>
+          <view class='r-b-text'>原价
+            <text>20元/份</text>
+          </view>
+        </view>
+      </view>
+      <view class='sf-con'>
+        <view class='sf-left'>完整版</view>
+        <view class='sf-right'>
+          <view class='r-t-text'>推广期优惠价</view>
+          <view class='r-m-text'>
+            50
+            <text>元/份</text>
+          </view>
+          <view class='r-b-text'>原价
+            <text>100元/份</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='p-c-title'>查询流程</view>
+    <view class='p-c-search'>
+      <image src='../../images/errortips.png'></image>
+      <text>如果报告生成失败会自动退费，请务必填写被查询人真实信息。</text>
+    </view>
+    <view class='step-box'>
+      <view>
+        <image src='../../images/s-icon1.png'></image>
+        <text>填写信息</text>
+      </view>
+      <view>></view>
+      <view>
+        <image src='../../images/s-icon2.png'></image>
+        <text>验证授权码</text>
+      </view>
+      <view>></view>
+      <view>
+        <image src='../../images/s-icon3.png'></image>
+        <text>选择版本</text>
+      </view>
+      <view>></view>
+      <view>
+        <image src='../../images/s-icon4.png'></image>
+        <text>支付并生成</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='p-c-intro-box p-c-intro-box2'>
+    <view class='p-c-title'>
+      <image src='../../images/s-icon5.png'></image>
+      <view>查看报告模板</view>
+      <view>></view>
+    </view>
+  </view>
+
+  <button class='return-btn'>我要查询</button>
+  <view class='regProtocol'>
+    <icon type='success' size='15' color='#3f9cfa'></icon>
+  <text bindtap='showProtocolTotal'>房贷担保服务注册协议</text></view>
+</view>
+
+<view class='protocolBoxBg {{isShow==true?"fadein":"fadeout"}}'></view>
+<view class='protocolBox {{isShow==true?"fadein":"fadeout"}}'>
+<template is="regprotocal" data=""/>
+     </view>

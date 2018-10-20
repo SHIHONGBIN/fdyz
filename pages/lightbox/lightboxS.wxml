@@ -1,0 +1,5 @@
+<!--pages/lightbox/lightboxSucc.wxml-->
+<view class='lightboxSucc'>
+  <image src='../../images/lightboxsucc.png'></image>
+  <text>提交成功</text>  
+</view>

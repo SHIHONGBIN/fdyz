@@ -1,2 +1,5 @@
 {
+  "usingComponents": {
+    "lightbox": "../../Componets/lightbox/lightbox"
+  }
 }

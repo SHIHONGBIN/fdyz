@@ -1,0 +1,7 @@
+.search-box{ position: relative}
+.searchlist{ background-color: #fff; height: 0; display: flex; flex-direction: row;padding: 0 25rpx; align-items: center;  transition: all .5s; overflow: hidden; position: fixed; left: 0; top: 192rpx; width: 100%; z-index: 999;}
+.searchlist>view{ width: 152rpx; height: 50rpx; line-height: 50rpx; text-align: center; border: solid 1px #eeeeee; border-radius: 6rpx; font-size: 28rpx; margin-right: 25rpx}
+.searchlist>view.cur{ border-color: #3f9cfa; color:#3f9cfa; background-color: #f1f9ff}
+.searchlist.clickedSearch{ height:128rpx}
+.searchlistbg{ background-color: rgba(0,0,0,.3); position: fixed; left: 0; top: 192rpx; height: 100%;width:100%;  z-index: 99; opacity: 0; transition: all .5s}
+.searchlistbg.clickedSearch{opacity: 1}

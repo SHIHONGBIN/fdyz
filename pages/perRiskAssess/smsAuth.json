@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "个人风险评测"
+  "navigationBarTitleText": "个人风险评测",
+      "usingComponents": {
+        "lightbox": "../../Componets/lightbox/lightbox"
+      }
 }

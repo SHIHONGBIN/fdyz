@@ -1,13 +1,21 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/personalEvaluationResult/personalEvaluationResult",
     "pages/personalEvaluation/personalEvaluation",
+    "pages/fddtest/fddtest",
+    "pages/perRiskAssess/smsAuth",
+    "pages/perRiskAssess/index",
+    "pages/perRiskAssess/WxPayMent",
+    "pages/perRiskAssess/intro",
+    "pages/lightbox/provimg",
+    "pages/lightbox/lightboxF",
+    "pages/lightbox/lightboxS",
     "pages/personalEvaluation1/personalEvaluation1",
     "pages/personalEvaluation2/personalEvaluation2",
     "pages/login/login",
     "pages/dueDiligence/dueDiligence",
-    "pages/propertyRightAgency/propertyRightAgency"
+    "pages/propertyRightAgency/propertyRightAgency",
+    "pages/order/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,26 +24,25 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "position":"bottom",
-    "color":"#333333",
-    "selectedColor":"#00cdac",
-    "list": [{
-        "pagePath": "pages/index/index",
-        "text": "业务",
-        "iconPath": "/images/icon-yw.png",
-        "selectedIconPath": "images/icon-yw-current.png"
-      },
+    "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "客服",
-        "iconPath": "images/icon-kf.png",
-        "selectedIconPath": "images/icon-kf-current.png"
+        "text": "首页",
+        "iconPath":"images/index1icongray.png",
+        "selectedIconPath":"images/index1iconcolor.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/order/index",
         "text": "订单",
-        "iconPath": "images/icon-dd.png",
-        "selectedIconPath": "images/icon-dd-current.png"
-      }]
+        "iconPath": "images/index2icongray.png",
+        "selectedIconPath": "images/index2iconcolor.png"
+      },
+      {
+        "pagePath": "pages/order/index",
+        "text": "我的",
+        "iconPath": "images/index3icongray.png",
+        "selectedIconPath": "images/index3iconcolor.png"
+      }
+    ]
   }
 }
